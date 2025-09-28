@@ -242,3 +242,56 @@ hr {
   color: var(--muted);
   font-size: 13px;
 }
+
+/* ===== Background "Star Wars" style crawl ===== */
+.bg-crawl{
+  position: fixed;
+  inset: 0;
+  z-index: 0;                 /* behind content */
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.08;              /* overall transparency */
+}
+
+.crawl-track{
+  position: absolute;
+  width: 140%;
+  left: -10%;
+  bottom: -10%;
+  display: grid;
+  gap: 48px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 16px;
+  line-height: 1.3;
+  color: #9be3b7;             /* mint green */
+  transform-origin: center bottom;
+  transform:
+    perspective(900px)
+    rotateX(35deg)            /* tilt away */
+    skewX(10deg)              /* slight right skew */
+    rotate(-2deg);            /* tiny angle for life */
+  filter: blur(0.3px);        /* subtle softening */
+  animation: dtm-crawl 60s linear infinite;
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, rgba(0,0,0,0.5) 15%, #000 45%, transparent 90%);
+          mask-image: linear-gradient(to top, transparent 0%, rgba(0,0,0,0.5) 15%, #000 45%, transparent 90%);
+}
+
+.crawl-track pre{
+  margin: 0;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+}
+
+/* move upward forever */
+@keyframes dtm-crawl{
+  0%   { transform:
+           perspective(900px) rotateX(35deg) skewX(10deg) rotate(-2deg)
+           translateY(0%); }
+  100% { transform:
+           perspective(900px) rotateX(35deg) skewX(10deg) rotate(-2deg)
+           translateY(-120%); }
+}
+
+/* keep regular content above the crawl */
+.nav, .hero, .section, .footer { position: relative; z-index: 1; }
+
