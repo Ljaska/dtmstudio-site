@@ -1,0 +1,46 @@
+
+/* DTM Studio site - minimal dark green theme */
+:root{
+  --bg:#0f1f0f;
+  --panel:#142414;
+  --accent:#2e7d32;
+  --accent2:#1b5e20;
+  --text:#e8f5e9;
+  --muted:#a5d6a7;
+  --border:#2a3a2a;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;font-family:Inter,Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);}
+a{color:#81c784;text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1100px;margin:0 auto;padding:24px}
+.nav{
+  position:sticky; top:0; z-index:10;
+  background:linear-gradient(135deg,var(--accent2),var(--accent));
+  border-bottom:1px solid var(--border);
+}
+.nav .inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 24px;}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700}
+.brand img{width:36px;height:36px;border-radius:8px}
+.menu{display:flex;gap:16px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 18px;border-radius:10px;background:var(--accent);border:1px solid #3b8a3f;font-weight:600}
+.btn-outline{background:transparent;border:1px solid #3b8a3f}
+.hero{padding:72px 24px;text-align:center;background:radial-gradient(1200px 400px at 50% 0%,rgba(46,125,50,0.25),transparent)}
+.hero h1{font-size:48px;margin:0 0 10px}
+.hero p{font-size:18px;color:var(--muted);max-width:800px;margin:0 auto 22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:18px}
+.card h3{margin-top:0}
+.section{padding:36px 24px}
+h2.section-title{margin:0 0 12px;font-size:28px;color:var(--muted)}
+.footer{border-top:1px solid var(--border);padding:28px;text-align:center;color:#9fbfa1;background:#0c160c}
+.badge{display:inline-block;padding:6px 10px;border:1px solid var(--border);border-radius:100px;color:var(--muted);font-size:12px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.gallery img{width:100%;height:160px;object-fit:cover;border-radius:12px;border:1px solid var(--border);background:#0b0b0b}
+.kbd{display:inline-block;border:1px solid var(--border);border-bottom-width:2px;background:#0c160c;padding:2px 6px;border-radius:6px;font-family:ui-monospace,Consolas,monospace;font-size:12px}
+.form{max-width:640px;margin:0 auto}
+.input, .textarea{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:10px;background:#0c160c;color:var(--text)}
+.textarea{min-height:140px;resize:vertical}
+label{display:block;margin:12px 0 6px;color:var(--muted)}
+hr{border:0;border-top:1px solid var(--border);margin:24px 0}
+.small{color:var(--muted);font-size:13px}
