@@ -1,49 +1,244 @@
+/* =====================
+   COLOR VARIABLES
+   ===================== */
+:root {
+  --bg: #0e1312;          /* Основной фон (тёмный угольный) */
+  --panel: #121917;       /* Панель / карточки */
+  --accent: #21b559;      /* Основной акцент (эко-зелёный) */
+  --accent-dark: #138a41; /* Тёмный акцент */
+  --text: #f0f2e9;        /* Текст (мягкий айвори) */
+  --muted: #b8c6b8;       /* Второстепенный текст (приглушённый мятный) */
+  --border: #243229;      /* Границы */
+}
 
-:root{
-  --bg:#0e1312;          /* deep charcoal */
-  --panel:#121917;       /* slightly lighter panel */
-  --accent:#21b559;      /* eco-green */
-  --accent-dark:#138a41; /* darker eco-green */
-  --text:#f0f2e9;        /* soft ivory */
-  --muted:#b8c6b8;       /* desaturated mint */
-  --border:#243229;
+/* =====================
+   RESET & BASE
+   ===================== */
+* {
+  box-sizing: border-box;
 }
-*{box-sizing:border-box}
-html,body{margin:0;padding:0;font-family:Inter,Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text)}
-a{color:#9be3b7;text-decoration:none}
-a:hover{text-decoration:underline}
-.nav{
-  position:sticky; top:0; z-index:10;
-  background: rgba(14,19,18,0.92);      /* тёмная полупрозрачная */
-  backdrop-filter: blur(8px);            /* лёгкий блюр */
-  border-bottom: 2px solid var(--accent);/* тонкий зелёный акцент снизу */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
 }
-.nav .inner{
-  display:flex; align-items:center; justify-content:space-between;
-  gap:20px; padding:10px 22px;           /* поменьше высота */
+a {
+  color: #9be3b7;
+  text-decoration: none;
 }
-.brand img{ height: 64px; width:auto; }  /* лого крупнее */
-.menu a{ color: var(--text); opacity:0.9; }
-.menu a:hover{ opacity:1; text-decoration: underline; }
-.btn{display:inline-block;padding:12px 18px;border-radius:12px;background:var(--accent);border:1px solid #2ac16a;color:#05260f;font-weight:700}
-.btn-outline{background:transparent;border:1px solid #2ac16a;color:var(--text)}
-.container{max-width:1100px;margin:0 auto;padding:24px}
-.hero{padding:80px 24px;text-align:left;background:radial-gradient(1100px 380px at 60% -10%,rgba(33,181,89,0.18),transparent)}
-.hero .wrap{display:grid;grid-template-columns:1.2fr 0.8fr;gap:28px;align-items:center}
-.hero h1{font-size:46px;margin:0 0 12px}
-.hero p{font-size:18px;color:var(--muted);margin:0 0 20px}
-.badge{display:inline-block;padding:6px 10px;border:1px solid var(--border);border-radius:999px;color:var(--muted);font-size:12px;margin-bottom:10px}
-.section{padding:38px 24px}
-h2.section-title{margin:0 0 12px;color:#dfe8dc;font-size:28px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px}
-.card h3{margin-top:0}
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.gallery img{width:100%;height:180px;object-fit:cover;border-radius:12px;border:1px solid var(--border);background:#0b0f0e}
-.kbd{display:inline-block;border:1px solid var(--border);border-bottom-width:2px;background:#0c140f;padding:2px 6px;border-radius:6px;font-family:ui-monospace,Consolas,monospace;font-size:12px}
-.footer{border-top:1px solid var(--border);padding:28px;text-align:center;color:#a9b6a9;background:#0a0f0e}
-.form{max-width:640px;margin:0 auto}
-.input,.textarea{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:10px;background:#0c140f;color:var(--text)}
-.textarea{min-height:140px;resize:vertical}
-hr{border:0;border-top:1px solid var(--border);margin:24px 0}
-.small{color:var(--muted);font-size:13px}
+a:hover {
+  text-decoration: underline;
+}
+
+/* =====================
+   NAVIGATION
+   ===================== */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(14, 19, 18, 0.92); /* тёмная полупрозрачная */
+  backdrop-filter: blur(8px);          /* лёгкий блюр */
+  border-bottom: 2px solid var(--accent); /* зелёная линия снизу */
+}
+.nav .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 22px;
+}
+.brand img {
+  height: 64px; /* размер логотипа */
+  width: auto;
+}
+.menu a {
+  color: var(--text);
+  opacity: 0.9;
+  margin: 0 18px; /* расстояние между пунктами меню */
+  padding: 8px 0; /* увеличивает клик-зону */
+}
+.menu a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+.menu .btn {
+  margin-left: 24px;     /* кнопка отступает от ссылок */
+  padding: 8px 16px;     /* балансируем размер */
+}
+
+/* =====================
+   BUTTONS
+   ===================== */
+.btn {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: var(--accent);
+  border: 1px solid #2ac16a;
+  color: #05260f;
+  font-weight: 700;
+}
+.btn-outline {
+  background: transparent;
+  border: 1px solid #2ac16a;
+  color: var(--text);
+}
+
+/* =====================
+   CONTAINERS & LAYOUT
+   ===================== */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+.section {
+  padding: 38px 24px;
+}
+
+/* =====================
+   HERO SECTION
+   ===================== */
+.hero {
+  padding: 80px 24px;
+  text-align: left;
+  background: radial-gradient(
+    1100px 380px at 60% -10%,
+    rgba(33, 181, 89, 0.18),
+    transparent
+  );
+}
+.hero .wrap {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 28px;
+  align-items: center;
+}
+.hero h1 {
+  font-size: 46px;
+  margin: 0 0 12px;
+}
+.hero p {
+  font-size: 18px;
+  color: var(--muted);
+  margin: 0 0 20px;
+}
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+/* =====================
+   HEADERS
+   ===================== */
+h2.section-title {
+  margin: 0 0 12px;
+  color: #dfe8dc;
+  font-size: 28px;
+}
+
+/* =====================
+   GRID & CARDS
+   ===================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+}
+.card h3 {
+  margin-top: 0;
+}
+
+/* =====================
+   GALLERY
+   ===================== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+.gallery img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #0b0f0e;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.gallery img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* =====================
+   UI ELEMENTS
+   ===================== */
+.kbd {
+  display: inline-block;
+  border: 1px solid var(--border);
+  border-bottom-width: 2px;
+  background: #0c140f;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 12px;
+}
+
+/* =====================
+   FOOTER
+   ===================== */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 28px;
+  text-align: center;
+  color: #a9b6a9;
+  background: #0a0f0e;
+}
+
+/* =====================
+   FORMS
+   ===================== */
+.form {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.input,
+.textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #0c140f;
+  color: var(--text);
+}
+.textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* =====================
+   OTHER
+   ===================== */
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 24px 0;
+}
+.small {
+  color: var(--muted);
+  font-size: 13px;
+}
