@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Features • DTM Studio</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="stylesheet" href="assets/style.css">
   <meta name="description" content="DTM Studio — Diamond Turning Manager for precision optics labs.">
 </head>
@@ -11,7 +12,7 @@
   
 <div class="nav">
   <div class="inner">
-    <div class="brand"><img src="assets/logo.svg" alt="DTM logo"><span>DTM Studio</span></div>
+    <div class="brand"><img src="assets/dtmlogo.png" alt="DTM Cube Logo"></div>
     <div class="menu">
       <a href="index.html">Home</a>
       <a href="features.html">Features</a>
@@ -27,40 +28,20 @@
   <div class="container">
     <h2 class="section-title">Core Features</h2>
     <div class="grid">
-      <div class="card">
-        <h3>Multi‑segment Engine</h3>
-        <p>Mix segments (Asphere, Bevel, Flat) with per‑segment parameters and lengths. Designed to match real lens layouts.</p>
-      </div>
-      <div class="card">
-        <h3>Programmable Tool Radius</h3>
-        <p>Explicit tool radius in generation logic. Clear filenames like <span class="kbd">Asphere_R0.250_M3</span>.</p>
-      </div>
-      <div class="card">
-        <h3>Per‑side Corrections</h3>
-        <p>Left / Right / Average application from MOD files with percent scaling and X‑shift.</p>
-      </div>
-      <div class="card">
-        <h3>SAPR</h3>
-        <p>Smart Adaptive Profile Reconstruction: restore ideal profile, subtract measured, keep only true error.</p>
-      </div>
-      <div class="card">
-        <h3>Chamfer & Retract</h3>
-        <p>Automatic retract after chamfer finish to prevent tool edge hits.</p>
-      </div>
-      <div class="card">
-        <h3>Visualization</h3>
-        <p>2D profile preview with segment labels and lengths — see before you cut.</p>
-      </div>
+      <div class="card"><h3>Multi‑segment Engine</h3><p>Segment table with parameters per piece. Designed for real lens layouts and shelf profiles.</p></div>
+      <div class="card"><h3>Tool Radius Mode</h3><p>File names include radius and spin mode, e.g. <span class="kbd">Asphere_R0.250_M3</span>.</p></div>
+      <div class="card"><h3>Corrections Stack</h3><p>Safe stacking with undo; prevents duplicate MOD application.</p></div>
+      <div class="card"><h3>SAPR</h3><p>Reconstruct ideal profile, subtract measured, keep only true error.</p></div>
+      <div class="card"><h3>Chamfer & Retract</h3><p>Reliable retract after bevel finish to avoid edge hits.</p></div>
+      <div class="card"><h3>Visualization</h3><p>2D profile preview with labeled segments and lengths.</p></div>
     </div>
     <hr>
-    <p class="small">Note: trademarks of other companies are used nowhere on this site. DTM Studio is an independent software project.</p>
+    <p class="small">DTM Studio is an independent software project; third‑party trademarks are not referenced.</p>
   </div>
 </section>
 
   
-<div class="footer small">
-  © 2025 DTM Studio — All rights reserved.
-</div>
+<div class="footer small">© 2025 DTM Studio — All rights reserved.</div>
 
 </body>
 </html>

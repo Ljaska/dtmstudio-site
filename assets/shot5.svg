@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="450">
-  <rect width="100%" height="100%" fill="#111"/>
-  <rect x="10" y="10" width="780" height="430" rx="12" ry="12" fill="#1a1a1a" stroke="#2a3a2a"/>
-  <text x="50%" y="50%" fill="#a5d6a7" font-size="28" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Trajectory View</text>
+  <rect width="100%" height="100%" fill="#0b0f0e"/>
+  <rect x="10" y="10" width="780" height="430" rx="14" ry="14" fill="#121917" stroke="#243229"/>
+  <text x="50%" y="50%" fill="#9be3b7" font-size="28" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Trajectory</text>
 </svg>
