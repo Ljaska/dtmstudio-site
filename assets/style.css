@@ -36,23 +36,50 @@ a:hover {
    NAVIGATION
    ===================== */
 .nav {
-  position: sticky;
+  position: sticky;   /* липкая, а не fixed */
   top: 0;
-  z-index: 10;
-  background: rgba(14, 19, 18, 0.92); /* тёмная полупрозрачная */
-  backdrop-filter: blur(8px);          /* лёгкий блюр */
-  border-bottom: 2px solid var(--accent); /* зелёная линия снизу */
+  width: 100%;
+  z-index: 1000;      /* всегда поверх фона crawl */
+  background: rgba(14,19,18,0.60);
+  backdrop-filter: blur(8px);
+  border-bottom: 2px solid var(--accent);
+  transition: background .3s ease, box-shadow .3s ease;
 }
+
+.nav.scrolled {
+  background: rgba(14,19,18,0.92);
+  box-shadow: 0 8px 24px rgba(0,0,0,.35);
+}
+
 .nav .inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 22px;
 }
-.brand img {
-  height: 64px; /* размер логотипа */
-  width: auto;
+
+/* keep regular content above the crawl */
+.hero, .section, .footer { 
+  position: relative; 
+  z-index: 1; 
 }
+.nav { 
+  z-index: 1000;   /* только порядок, без position */
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  height: 60px; /* высота шапки */
+}
+
+.brand img {
+  max-height: 40px;  /* ограничиваем */
+  width: auto;
+  display: block;    /* убираем лишние отступы */
+}
+
+
 .menu a {
   color: var(--text);
   opacity: 0.9;
@@ -161,7 +188,6 @@ h2.section-title {
 .card h3 {
   margin-top: 0;
 }
-
 /* =====================
    GALLERY
    ===================== */
@@ -170,6 +196,7 @@ h2.section-title {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 16px;
 }
+
 .gallery img {
   width: 100%;
   height: 180px;
@@ -177,11 +204,20 @@ h2.section-title {
   border-radius: 12px;
   border: 1px solid var(--border);
   background: #0b0f0e;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  /* приглушаем кислотные цвета */
+  filter: brightness(0.85) contrast(0.85) saturate(0.85);
+
+  transition: transform 0.3s ease,
+              box-shadow 0.3s ease,
+              filter 0.3s ease;
 }
+
 .gallery img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  transform: scale(1.05);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.6), 0 0 12px rgba(33, 181, 89, 0.5);
+  /* возвращаем «живые» цвета при наведении */
+  filter: brightness(1) contrast(1) saturate(1);
 }
 
 /* =====================
@@ -250,7 +286,7 @@ hr {
   z-index: 0;                 /* behind content */
   pointer-events: none;
   overflow: hidden;
-  opacity: 0.08;              /* overall transparency */
+  opacity: 0.18;              /* overall transparency */
 }
 
 .crawl-track{
@@ -293,5 +329,41 @@ hr {
 }
 
 /* keep regular content above the crawl */
-.nav, .hero, .section, .footer { position: relative; z-index: 1; }
+.hero, .section, .footer { 
+  position: relative; 
+  z-index: 1; 
+}
+.nav { 
+  z-index: 1000;   /* только порядок, без position */
+}
 
+
+/* =====================
+   LIGHTBOX2 THEME
+   ===================== */
+.lb-overlay {
+  background: rgba(0,0,0,0.9) !important;
+}
+
+.lb-outerContainer {
+  border-radius: 12px;
+  background: var(--panel);
+  box-shadow: 0 12px 40px rgba(0,0,0,.6);
+}
+
+.lb-data .lb-caption {
+  color: var(--text);
+  font-weight: 600;
+}
+.lb-data .lb-number {
+  color: var(--muted);
+}
+
+/* чуть подкрашиваем стрелки/lightbox-иконки под твой акцент */
+.lb-nav a.lb-prev, 
+.lb-nav a.lb-next, 
+.lb-data .lb-close {
+  filter: hue-rotate(110deg) saturate(1.6);
+  opacity: .95;
+}
+.lb-data .lb-close:hover { opacity: 1; }

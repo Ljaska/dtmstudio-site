@@ -30,31 +30,47 @@
 <!-- Background crawl must be OUTSIDE the nav -->
 <div class="bg-crawl" aria-hidden="true">
   <div class="crawl-track">
-    <pre>DTM STUDIO — DIAMOND TURNING MANAGER
-MACHINE: PRECISION LATHE
-PROFILE: MULTI-SEGMENT  |  TOOL RADIUS: 0.250
-MODE: M3  |  FEED: F800  |  RPM: 1200
-CORRECTION: MOD L/R/A  |  SCALE: 75%  |  XSHIFT: +0.010
-CHAMFER: ENABLED  |  RETRACT: SAFE
-TRAJECTORY: PREVIEW OK  |  ERR: < 0.1µm
-––––––––––––––––––––––––––––––––––––––––––––––––––
-PASS 01 ………………………………………………………………………………… OK
-PASS 02 ………………………………………………………………………………… OK
-PASS 03 ………………………………………………………………………………… OK
-DTM STUDIO — BUILT BY OPERATORS FOR OPERATORS</pre>
+    <pre>n1000                  ;subroutine
+;----- PART INFO DATA --------------------------
+;DIAMETER: 54
+;RADIUS: 40,7
+;SPINDLE DIRECTION: M3
+;PROGRAMM WITH BEVEL: 0.2
+;MOD file 1: G:\DT4_newtaly_1000z.mod|Left|100|Plainor
+;CONIC CONSTANT: 0 
+;ASPHERIC COEFFICIENT #2:   5.807903e-006 
+;ASPHERIC COEFFICIENT #4:   0 
+;ASPHERIC COEFFICIENT #6:   0 
+;ASPHERIC COEFFICIENT #8:   1.702735e-013 
+;ASPHERIC COEFFICIENT #10: -3.421595e-016 
+;ASPHERIC COEFFICIENT #12: 0 
+;ASPHERIC COEFFICIENT #14: 0 
+;ASPHERIC COEFFICIENT #16: 0 
+;-----------------------------------------------
 
-    <pre>DTM STUDIO — DIAMOND TURNING MANAGER
-MACHINE: PRECISION LATHE
-PROFILE: MULTI-SEGMENT  |  TOOL RADIUS: 0.250
-MODE: M3  |  FEED: F800  |  RPM: 1200
-CORRECTION: MOD L/R/A  |  SCALE: 75%  |  XSHIFT: +0.010
-CHAMFER: ENABLED  |  RETRACT: SAFE
-TRAJECTORY: PREVIEW OK  |  ERR: < 0.1µm
-––––––––––––––––––––––––––––––––––––––––––––––––––
-PASS 01 ………………………………………………………………………………… OK
-PASS 02 ………………………………………………………………………………… OK
-PASS 03 ………………………………………………………………………………… OK
-DTM STUDIO — BUILT BY OPERATORS FOR OPERATORS</pre>
+G40 X30 Z5 F800
+
+Z-12.1 F200
+
+G41 X27.80000 Z-11.085093 F100
+M7.1
+F15
+X26.800000 Z-10.085093 
+F(p45)
+X26.790000 Z-10.076242 
+X26.780000 Z-10.067396 
+X26.770000 Z-10.058556 
+X26.760000 Z-10.049723 
+X26.750000 Z-10.040896 
+X26.740000 Z-10.032075 
+X26.730000 Z-10.023261 
+X26.720000 Z-10.014452 
+X26.710000 Z-10.005650 
+X26.700000 Z-9.996854 
+X26.690000 Z-9.988064 
+X26.680000 Z-9.979280 
+X26.670000 Z-9.970502 
+</pre>
   </div>
 </div>
 
@@ -63,8 +79,9 @@ DTM STUDIO — BUILT BY OPERATORS FOR OPERATORS</pre>
   <div class="container wrap">
     <div>
       <span class="badge">Diamond Turning Manager</span>
-      <h1>DTM Studio — eco‑green precision</h1>
-      <p>Next‑gen toolchain for SPDT. Built by operators for operators. Multi‑segment surfaces, explicit tool radius, safe profile corrections, and clean visualization — all in one place.</p>
+      <h1>DTM Studio — Precision made simple</h1>
+        <p>Built by SPDT operators for daily work on Precitech and Nanotech machines.  
+        Generate G-code, apply profile corrections, and manage projects faster and safer — all in one place.</p>
       <div style="display:flex;gap:12px;flex-wrap:wrap">
         <a class="btn" href="features.html">Explore Features</a>
         <a class="btn btn-outline" href="gallery.html">See Gallery</a>
@@ -80,18 +97,38 @@ DTM STUDIO — BUILT BY OPERATORS FOR OPERATORS</pre>
   <div class="container">
     <h2 class="section-title">Highlights</h2>
     <div class="grid">
-      <div class="card"><h3>Multi‑segment Surfaces</h3><p>Combine Asphere, Bevel, Flat — each with its own parameters and lengths.</p></div>
-      <div class="card"><h3>Programmable Tool Radius</h3><p>Explicit radius with clear M3/M4 modes. No legacy compensation overlap.</p></div>
-      <div class="card"><h3>Per‑side Corrections</h3><p>Apply MOD/XYZ per Left/Right/Average with % scaling and X‑shift.</p></div>
-      <div class="card"><h3>SAPR</h3><p>Smart Adaptive Profile Reconstruction — patent‑safe alternative to slope‑style methods.</p></div>
-      <div class="card"><h3>Chamfer Automation</h3><p>Automatic retract at chamfer end to protect tool edge.</p></div>
-      <div class="card"><h3>Trajectory Visualization</h3><p>Preview motion before cutting to boost first‑run confidence.</p></div>
+      
+      <div class="card"><h3>Direct Machine Output</h3><p>Generate clean G-code for Precitech (.PGM) and Nanotech (.NC) without manual edits.</p></div>
+      <div class="card"><h3>Programmable Tool Radius</h3><p>Explicit radius in every trajectory. No double compensation, no hidden surprises.</p></div>
+      <div class="card"><h3>Correction Stacking</h3><p>Load multiple MOD files, scale by %, shift in X, and undo duplicates instantly.</p></div>
+      <div class="card"><h3>Profile Safety</h3><p>Every step is logged and validated — minimizing operator mistakes before they reach the machine.</p></div>
+      <div class="card"><h3>One-click Project Save</h3><p>Form, corrections, and code stored together. Reopen anytime without re-entering.</p></div>
+      <div class="card"><h3>Operator Speed Boost</h3><p>Routine prep reduced to seconds: Correct-and-Go instead of endless edits.</p></div>
+      <div class="card"><h3>Universal Cutting Modes</h3><p>Create programs for both sides, with or without loops, chamfers included — all in one click.</p></div>
+	<div class="card"><h3>Multi-segment Workflow</h3><p>From spheres to aspheres, bevels and flats — combine them seamlessly in one program.</p></div>
     </div>
+    <hr>
+    <p class="small">DTM Studio is developed independently in Riga • Focused on real SPDT operator needs</p>
   </div>
 </section>
 
   
 <div class="footer small">© 2025 DTM Studio — All rights reserved.</div>
+
+<script>
+(function(){
+  const nav = document.querySelector('.nav');
+  if (!nav) return;
+  function onScroll(){
+    if (window.scrollY > 10) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  }
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+})();
+</script>
+
+
 
 </body>
 </html>

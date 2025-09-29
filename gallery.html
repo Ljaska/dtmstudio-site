@@ -13,13 +13,14 @@
 </head>
 <body>
   
+<!-- NAVIGATION -->
 <div class="nav">
   <div class="inner">
     <div class="brand">
-  <a href="index.html">
-    <img src="assets/dtmlogo.png" alt="DTM Cube Logo">
-  </a>
-</div>
+      <a href="index.html">
+        <img src="assets/dtmlogo.png" alt="DTM Cube Logo">
+      </a>
+    </div>
 
     <div class="menu">
       <a href="index.html">Home</a>
@@ -31,31 +32,57 @@
   </div>
 </div>
 
+<!-- GALLERY -->
 <section class="section">
   <div class="container">
     <h2 class="section-title">Gallery</h2>
     <div class="gallery">
-      <a href="assets/Screenshot1.png" data-lightbox="dtm-gallery" data-title="Precitech interface">
+      <a href="assets/Screenshot1.png" data-lightbox="dtm-gallery" data-title="Precitech G-code preview">
         <img src="assets/Screenshot1.png" alt="Precitech">
       </a>
-      <a href="assets/Screenshot2.png" data-lightbox="dtm-gallery" data-title="Nanotech interface">
+      <a href="assets/Screenshot2.png" data-lightbox="dtm-gallery" data-title="Nanotech G-code preview">
         <img src="assets/Screenshot2.png" alt="Nanotech">
       </a>
-      <a href="assets/Screenshot3.png" data-lightbox="dtm-gallery" data-title="Corrections window">
+      <a href="assets/Screenshot3.png" data-lightbox="dtm-gallery" data-title="Profile corrections window">
         <img src="assets/Screenshot3.png" alt="Corrections">
       </a>
       <a href="assets/Screenshot4.png" data-lightbox="dtm-gallery" data-title="Main DTM Studio interface">
         <img src="assets/Screenshot4.png" alt="Main">
       </a>
     </div>
-    <p class="small" style="margin-top:12px">Screenshots from real DTM Studio environment.</p>
+    <p class="small" style="margin-top:12px">
+      Screenshots from the real DTM Studio environment.
+    </p>
   </div>
 </section>
 
+<!-- FOOTER -->
 <div class="footer small">© 2025 DTM Studio — All rights reserved.</div>
 
 <!-- Lightbox JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+<script>
+  // кастомные настройки лайтбокса
+  lightbox.option({
+    'resizeDuration': 200,
+    'fadeDuration': 200,
+    'imageFadeDuration': 200,
+    'wrapAround': true,        // перелистывание по кругу
+    'alwaysShowNavOnTouchDevices': true
+  })
+</script>
+
+<script>
+  lightbox.option({
+    resizeDuration: 200,
+    fadeDuration: 200,
+    imageFadeDuration: 200,
+    wrapAround: true,
+    alwaysShowNavOnTouchDevices: true
+  });
+</script>
+
 
 </body>
 </html>
