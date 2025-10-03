@@ -367,3 +367,10 @@ hr {
   opacity: .95;
 }
 .lb-data .lb-close:hover { opacity: 1; }
+
+
+/* Поднимаем блок System Requirements ближе к About */
+.section.requirements {
+  padding-top: 4px;      /* вместо 38px */
+  margin-top: -30px;     /* компенсируем нижний отступ About */
+}
