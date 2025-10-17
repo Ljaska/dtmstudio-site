@@ -423,3 +423,30 @@ hr {
   filter: drop-shadow(0 0 4px #00ff99);
 }
 
+/* ===== Namecheap footer logo fix ===== */
+.powered-by a img {
+  height: 22px;
+  width: auto;
+  opacity: 0.9;
+  transition: all 0.25s ease;
+}
+
+.powered-by a:hover img {
+  opacity: 1;
+  filter: drop-shadow(0 0 4px var(--accent));
+}
+
+/* выравнивание по центру и сжатие отступов */
+.powered-by {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.powered-by span {
+  color: #8fa18f;
+  font-size: 13px;
+}
+
