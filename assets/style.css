@@ -450,3 +450,10 @@ hr {
   font-size: 13px;
 }
 
+/* ===== mobile size for Namecheap logo ===== */
+@media (max-width: 600px) {
+  .powered-by a img {
+    height: 18px;
+  }
+}
+
