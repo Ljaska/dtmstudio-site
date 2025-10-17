@@ -292,12 +292,12 @@ hr {
 .crawl-track{
   position: absolute;
   width: 140%;
-  left: -10%;
+  left: -20%;
   bottom: -10%;
   display: grid;
   gap: 48px;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 16px;
+  font-size: 56px;
   line-height: 1.3;
   color: #9be3b7;             /* mint green */
   transform-origin: center bottom;
@@ -374,3 +374,52 @@ hr {
   padding-top: 4px;      /* вместо 38px */
   margin-top: -30px;     /* компенсируем нижний отступ About */
 }
+
+.site-footer {
+  width: 100%;
+  background: #0b0b0b; /* под твой тёмный стиль */
+  color: #aaa;
+  font-size: 14px;
+  padding: 20px 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid #222;
+}
+
+.powered-by {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.powered-by span {
+  color: #666;
+  font-size: 13px;
+}
+
+.powered-by img {
+  height: 24px;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.powered-by img:hover {
+  opacity: 1;
+}
+
+/* ===== Namecheap glow effect ===== */
+.powered-by a img {
+  height: 24px;
+  opacity: 0.9;
+  transition: all 0.2s ease;
+}
+
+.powered-by a:hover img {
+  opacity: 1;
+  filter: drop-shadow(0 0 4px #00ff99);
+}
+
