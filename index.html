@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DTM Studio — Precision made simple</title>
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="assets/style.css?v=7">
+  <link rel="stylesheet" href="assets/style.css?v=8">
   <link rel="canonical" href="https://dtm-studio.org/">
 
 
@@ -319,21 +319,37 @@ document.addEventListener('scroll', function() {
     }
   };
 
-  // Автоматический запуск после первого клика
-  document.addEventListener('click', () => {
-    if (hum.paused) hum.play().catch(()=>{});
-    btn.textContent = "🔇 Disable Ambience";
-    btn.style.background = "rgba(33,181,89,0.25)";
-  }, { once: true });
 
   document.body.appendChild(btn);
 })();
 </script>
+
 <!-- DTM Terminal Interactive -->
 <div id="dtmTerminal">
   <pre id="dtmLog"></pre>
   <div id="dtmInputWrap"><span id="dtmPrompt">&gt;</span><input id="dtmInput" autocomplete="off" /></div>
 </div>
+
+<style>
+  /* терминал сам без прокрутки, только лог скроллится колесом */
+  #dtmTerminal {
+    overflow: hidden;
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  /* скрываем полосу у лога */
+  #dtmLog {
+    overflow: auto;
+    scrollbar-width: none;       /* Firefox */
+    -ms-overflow-style: none;    /* IE/Edge legacy */
+  }
+  #dtmLog::-webkit-scrollbar {
+    width: 0;
+    height: 0;                   /* Chrome/Safari */
+  }
+</style>
+
 
 <script>
 (function(){
@@ -364,6 +380,8 @@ document.addEventListener('scroll', function() {
     display: "flex",
     flexDirection: "column",
   });
+  
+  
 
   Object.assign(log.style, {
     flex: "1",
@@ -439,7 +457,7 @@ document.addEventListener('scroll', function() {
         await new Promise(r => setTimeout(r, 500));
         await printLine("CPU Load: 12%");
         await printLine("Temperature: Stable");
-        await printLine("Status: ✅ OK");
+        await printLine("Status: — OK");
         break;
 
       case "memory check":
@@ -497,14 +515,26 @@ document.addEventListener('scroll', function() {
   }
 
   // --- toggle visibility ---
-  function toggleTerminal(show) {
-    visible = typeof show === "boolean" ? show : !visible;
-    term.style.transform = visible ? "translateY(0)" : "translateY(100%)";
+function toggleTerminal(show) {
+  visible = typeof show === "boolean" ? show : !visible;
+  term.style.transform = visible ? "translateY(0)" : "translateY(100%)";
+
+  const hum = document.getElementById("dtmHum");
+  if (hum) {
     if (visible) {
-      setTimeout(() => input.focus(), 300);
-      runBoot();
+      hum.volume = 0.25;
+      hum.play().catch(()=>{});
+    } else {
+      hum.pause();
     }
   }
+
+  if (visible) {
+    setTimeout(() => input.focus(), 300);
+    runBoot();
+  }
+}
+
 
   // --- keyboard bindings ---
   input.addEventListener("keydown", e => {
@@ -526,50 +556,6 @@ document.addEventListener('scroll', function() {
   });
 })();
 </script>
-
-<!-- Cursor Light 2.0 -->
-<div id="cursorLight"></div>
-<script>
-(function(){
-  const light = document.createElement("div");
-  light.id = "cursorLight";
-  Object.assign(light.style, {
-    position: "fixed",
-    top: "0",
-    left: "0",
-    width: "220px",
-    height: "220px",
-    borderRadius: "50%",
-    pointerEvents: "none",
-    background: "radial-gradient(circle, rgba(33,181,89,0.25) 0%, rgba(33,181,89,0.04) 40%, rgba(33,181,89,0) 75%)",
-    mixBlendMode: "screen",
-    filter: "blur(80px)",
-    opacity: "0",
-    transform: "translate(-50%, -50%)",
-    transition: "opacity 0.3s ease-out",
-    zIndex: "3"
-  });
-  document.body.appendChild(light);
-
-  let lastX = 0, lastY = 0, intensity = 0;
-
-  window.addEventListener("mousemove", e => {
-    const dx = e.clientX - lastX;
-    const dy = e.clientY - lastY;
-    const speed = Math.sqrt(dx*dx + dy*dy);
-    intensity = Math.min(0.4, 0.15 + speed / 500);
-    light.style.left = e.clientX + "px";
-    light.style.top = e.clientY + "px";
-    light.style.opacity = intensity.toString();
-    lastX = e.clientX;
-    lastY = e.clientY;
-    clearTimeout(light._fade);
-    light._fade = setTimeout(() => light.style.opacity = "0", 700);
-  });
-})();
-</script>
-
-
 
 
 </body>
