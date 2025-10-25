@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DTM Studio — Precision made simple</title>
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="assets/style.css?v=6">
+  <link rel="stylesheet" href="assets/style.css?v=7">
   <link rel="canonical" href="https://dtm-studio.org/">
 
 
@@ -272,6 +272,304 @@ document.addEventListener('scroll', function() {
   });
 });
 </script>
+
+<<!-- DTM Ambient Hum -->
+<audio id="dtmHum" src="assets/hhum.mp3" loop preload="auto"></audio>
+
+<script>
+(function(){
+  const hum = document.getElementById('dtmHum');
+  if (!hum) return;
+
+  hum.volume = 0.15;
+
+  // Создаём кнопку управления
+  const btn = document.createElement('div');
+  btn.textContent = "🎧 Enable Ambience";
+  Object.assign(btn.style, {
+    position: "fixed",
+    bottom: "18px",
+    right: "18px",
+    background: "rgba(33,181,89,0.12)",
+    color: "#9be3b7",
+    border: "1px solid rgba(33,181,89,0.4)",
+    borderRadius: "12px",
+    padding: "8px 14px",
+    fontSize: "14px",
+    cursor: "pointer",
+    zIndex: 9999,
+    backdropFilter: "blur(6px)",
+    transition: "all 0.3s ease"
+  });
+
+  btn.onmouseenter = () => btn.style.background = "rgba(33,181,89,0.25)";
+  btn.onmouseleave = () => btn.style.background = "rgba(33,181,89,0.12)";
+
+  // Включение/выключение
+  btn.onclick = () => {
+    if (hum.paused) {
+      hum.play().catch(()=>{});
+      btn.textContent = "🔇 Disable Ambience";
+      btn.style.background = "rgba(33,181,89,0.25)";
+    } else {
+      hum.pause();
+      hum.currentTime = 0; // возвращаем в начало
+      btn.textContent = "🎧 Enable Ambience";
+      btn.style.background = "rgba(33,181,89,0.12)";
+    }
+  };
+
+  // Автоматический запуск после первого клика
+  document.addEventListener('click', () => {
+    if (hum.paused) hum.play().catch(()=>{});
+    btn.textContent = "🔇 Disable Ambience";
+    btn.style.background = "rgba(33,181,89,0.25)";
+  }, { once: true });
+
+  document.body.appendChild(btn);
+})();
+</script>
+<!-- DTM Terminal Interactive -->
+<div id="dtmTerminal">
+  <pre id="dtmLog"></pre>
+  <div id="dtmInputWrap"><span id="dtmPrompt">&gt;</span><input id="dtmInput" autocomplete="off" /></div>
+</div>
+
+<script>
+(function(){
+  const term = document.getElementById("dtmTerminal");
+  const log = document.getElementById("dtmLog");
+  const inputWrap = document.getElementById("dtmInputWrap");
+  const input = document.getElementById("dtmInput");
+  const prompt = document.getElementById("dtmPrompt");
+  let visible = false;
+
+  // --- terminal style ---
+  Object.assign(term.style, {
+    position: "fixed",
+    bottom: "0",
+    left: "0",
+    width: "100%",
+    height: "280px",
+    transform: "translateY(100%)",
+    background: "rgba(10,15,14,0.96)",
+    color: "#21b559",
+    fontFamily: "ui-monospace, Consolas, monospace",
+    fontSize: "14px",
+    borderTop: "1px solid rgba(33,181,89,0.3)",
+    boxShadow: "0 -2px 12px rgba(0,0,0,0.6)",
+    zIndex: 9999,
+    padding: "10px 16px",
+    transition: "transform 0.4s ease",
+    display: "flex",
+    flexDirection: "column",
+  });
+
+  Object.assign(log.style, {
+    flex: "1",
+    overflowY: "auto",
+    whiteSpace: "pre-wrap",
+    margin: "0",
+  });
+
+  Object.assign(inputWrap.style, {
+    display: "flex",
+    alignItems: "center",
+    gap: "6px",
+    paddingTop: "6px",
+    borderTop: "none",
+  });
+
+  Object.assign(input.style, {
+    flex: "1",
+    background: "transparent",
+    border: "none",
+    color: "#21b559",
+    outline: "none",
+    fontFamily: "ui-monospace, Consolas, monospace",
+    fontSize: "14px",
+    caretColor: "#21b559",
+    padding: "0",
+    margin: "0",
+  });
+
+  // blinking prompt ">"
+  Object.assign(prompt.style, {
+    color: "#21b559",
+    animation: "blink 1.2s steps(2, start) infinite",
+  });
+  const style = document.createElement("style");
+  style.textContent = `
+  @keyframes blink { to { visibility: hidden; } }
+  `;
+  document.head.appendChild(style);
+
+  // --- responses ---
+  const responses = {
+    help: "Available commands:\nstatus, license, clear, about, system diag, memory check, mod scan, core reboot, exit",
+    status: "All systems nominal.",
+    license: "DTM Studio v0.2.15 — Licensed to Internal Developer Node #001",
+    about: "Diamond Turning Manager — Core online.",
+    clear: "__clear__",
+    exit: "__exit__",
+  };
+
+  // --- typing effect ---
+  function printLine(line, delay = 40) {
+    return new Promise(resolve => {
+      let i = 0;
+      const interval = setInterval(() => {
+        if (i < line.length) {
+          log.textContent += line[i++];
+        } else {
+          clearInterval(interval);
+          log.textContent += "\n";
+          resolve();
+        }
+        log.scrollTop = log.scrollHeight;
+      }, delay);
+    });
+  }
+
+  // --- handle commands ---
+  async function handleCommand(cmd) {
+    switch (cmd) {
+      case "system diag":
+        await printLine("Running diagnostics...");
+        await new Promise(r => setTimeout(r, 500));
+        await printLine("CPU Load: 12%");
+        await printLine("Temperature: Stable");
+        await printLine("Status: ✅ OK");
+        break;
+
+      case "memory check":
+        await printLine("Scanning memory...");
+        await new Promise(r => setTimeout(r, 500));
+        await printLine("RAM usage: 63 MB / 1024 MB");
+        await printLine("Cache integrity: Verified.");
+        break;
+
+      case "mod scan":
+        await printLine("Scanning connected MOD profiles...");
+        await new Promise(r => setTimeout(r, 600));
+        await printLine("Left.mod — OK");
+        await printLine("Right.mod — OK");
+        await printLine("Glidex.mod — Ready");
+        break;
+
+      case "core reboot":
+        log.textContent = "";
+        await printLine("> Rebooting DTM Core...");
+        await new Promise(r => setTimeout(r, 1000));
+        runBoot();
+        break;
+
+      default:
+        if (responses[cmd]) {
+          if (responses[cmd] === "__clear__") log.textContent = "";
+          else if (responses[cmd] === "__exit__") toggleTerminal(false);
+          else log.textContent += responses[cmd] + "\n";
+        } else {
+          log.textContent += "Unknown command. Type 'help'.\n";
+        }
+    }
+    log.scrollTop = log.scrollHeight;
+  }
+
+  // --- boot sequence ---
+  function runBoot() {
+    log.textContent = "";
+    const lines = [
+      "> Connecting to DTM Core...",
+      "> License check: OK",
+      "> System ready.",
+      "",
+      "Type 'help' to list commands.\n"
+    ];
+    let i = 0;
+    const interval = setInterval(() => {
+      if (i < lines.length) {
+        log.textContent += lines[i++] + "\n";
+      } else {
+        clearInterval(interval);
+      }
+    }, 300);
+  }
+
+  // --- toggle visibility ---
+  function toggleTerminal(show) {
+    visible = typeof show === "boolean" ? show : !visible;
+    term.style.transform = visible ? "translateY(0)" : "translateY(100%)";
+    if (visible) {
+      setTimeout(() => input.focus(), 300);
+      runBoot();
+    }
+  }
+
+  // --- keyboard bindings ---
+  input.addEventListener("keydown", e => {
+    if (e.key === "Enter") {
+      const cmd = input.value.trim().toLowerCase();
+      if (!cmd) return;
+      log.textContent += "> " + cmd + "\n";
+      input.value = "";
+      handleCommand(cmd);
+    }
+  });
+
+  document.addEventListener("keydown", e => {
+    if (e.ctrlKey && (e.code === "Backquote" || e.key === "~")) {
+      e.preventDefault();
+      toggleTerminal();
+    }
+    if (e.key === "Escape" && visible) toggleTerminal(false);
+  });
+})();
+</script>
+
+<!-- Cursor Light 2.0 -->
+<div id="cursorLight"></div>
+<script>
+(function(){
+  const light = document.createElement("div");
+  light.id = "cursorLight";
+  Object.assign(light.style, {
+    position: "fixed",
+    top: "0",
+    left: "0",
+    width: "220px",
+    height: "220px",
+    borderRadius: "50%",
+    pointerEvents: "none",
+    background: "radial-gradient(circle, rgba(33,181,89,0.25) 0%, rgba(33,181,89,0.04) 40%, rgba(33,181,89,0) 75%)",
+    mixBlendMode: "screen",
+    filter: "blur(80px)",
+    opacity: "0",
+    transform: "translate(-50%, -50%)",
+    transition: "opacity 0.3s ease-out",
+    zIndex: "3"
+  });
+  document.body.appendChild(light);
+
+  let lastX = 0, lastY = 0, intensity = 0;
+
+  window.addEventListener("mousemove", e => {
+    const dx = e.clientX - lastX;
+    const dy = e.clientY - lastY;
+    const speed = Math.sqrt(dx*dx + dy*dy);
+    intensity = Math.min(0.4, 0.15 + speed / 500);
+    light.style.left = e.clientX + "px";
+    light.style.top = e.clientY + "px";
+    light.style.opacity = intensity.toString();
+    lastX = e.clientX;
+    lastY = e.clientY;
+    clearTimeout(light._fade);
+    light._fade = setTimeout(() => light.style.opacity = "0", 700);
+  });
+})();
+</script>
+
+
 
 
 </body>

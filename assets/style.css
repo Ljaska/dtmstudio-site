@@ -637,3 +637,22 @@ body::before {
   z-index: 0;
   pointer-events: none;
 }
+
+/* =====================
+   LOGO PULSE ANIMATION — DTM CORE
+   ===================== */
+.brand img {
+  filter: drop-shadow(0 0 6px rgba(33,181,89,0.25));
+  animation: logoPulse 5s ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px rgba(33,181,89,0.25));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 18px rgba(33,181,89,0.55));
+    transform: scale(1.015);
+  }
+}
