@@ -21,7 +21,7 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: Inter, Arial, Helvetica, sans-serif;
-  background: var(--bg);
+  background: transparent;
   color: var(--text);
 }
 a {
@@ -511,16 +511,16 @@ hr {
 
 /* --- hover glow (электрический контур) --- */
 .card:hover {
-  box-shadow: 0 0 12px rgba(33,181,89,0.3), 0 0 24px rgba(33,181,89,0.15);
-  border-color: rgba(33,181,89,0.5);
-  transition: all 0.25s ease;
+  box-shadow: 0 0 10px rgba(33,181,89,0.18);
+  border-color: rgba(33,181,89,0.4);
+  background: radial-gradient(circle at center, rgba(33,181,89,0.04), transparent 70%);
+  transition: all 0.35s ease;
 }
 
-/* --- свечение секций при наведении --- */
-.section:hover {
-  box-shadow: inset 0 0 35px rgba(33,181,89,0.08);
-  transition: box-shadow 0.6s ease;
-}
+
+
+
+
 
 /* =====================
    HERO FADE-IN ANIMATION
@@ -568,3 +568,72 @@ hr {
   }
 }
 
+/* =====================
+   DTM MATRIX CRAWL EFFECT
+   ===================== */
+
+/* небольшие колебания G-кода — эффект живого потока */
+.crawl-track {
+  animation: dtm-crawl 60s linear infinite, dtm-wobble 8s ease-in-out infinite, dtm-glow 4s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+
+/* лёгкая "вибрация" */
+@keyframes dtm-wobble {
+  0%, 100% {
+    transform:
+      perspective(900px)
+      rotateX(35deg)
+      skewX(10deg)
+      rotate(-2deg)
+      translateY(0%)
+      translateX(0);
+  }
+  25% {
+    transform:
+      perspective(900px)
+      rotateX(35deg)
+      skewX(10deg)
+      rotate(-2deg)
+      translateY(0%)
+      translateX(0.8%);
+  }
+  50% {
+    transform:
+      perspective(900px)
+      rotateX(35deg)
+      skewX(10deg)
+      rotate(-2deg)
+      translateY(-1%)
+      translateX(-0.8%);
+  }
+  75% {
+    transform:
+      perspective(900px)
+      rotateX(35deg)
+      skewX(10deg)
+      rotate(-2deg)
+      translateY(1%)
+      translateX(0.4%);
+  }
+}
+
+/* плавное дыхание свечения текста G-кода */
+@keyframes dtm-glow {
+  0%   { opacity: 0.15; filter: brightness(0.8); }
+  50%  { opacity: 0.23; filter: brightness(1.1); }
+  100% { opacity: 0.18; filter: brightness(0.95); }
+}
+
+
+/* =====================
+   FIX BACKGROUND GAP BETWEEN SECTIONS
+   ===================== */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, #0f1513 0%, #0b100f 100%);
+  z-index: 0;
+  pointer-events: none;
+}
