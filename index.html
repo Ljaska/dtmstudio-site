@@ -215,19 +215,96 @@ X26.670000 Z-9.970502
 <section id="contact" class="section">
   <div class="container">
     <h2 class="section-title">Request Demo</h2>
-    <div class="form card">
-      <p>Want to try DTM Studio or discuss features? Send an email:</p>
-      <p><a class="btn" href="mailto:info@dtm-studio.org?subject=DTM%20Studio%20Demo%20Request">info@dtm-studio.org</a></p>
-      <hr>
-      <p class="small">No forms, no trackers — just email.</p>
+    <div class="form card" style="text-align:center; padding:36px; background:rgba(10,15,14,0.9); border:1px solid rgba(33,181,89,0.25); box-shadow:0 0 25px rgba(33,181,89,0.08);">
+      
+      <p style="font-size:16px; color:#bdecd0; margin-bottom:20px;">
+        Want to explore <strong>DTM Studio</strong> or discuss features with the developer?<br>
+        Reach out directly — no forms, no bots.
+      </p>
+
+<p>
+<a class="btn" id="contactLink">info@dtm-studio.org</a>
+
+<style>
+#contactLink {
+  letter-spacing: 0.3px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+
+
+</style>
+
+</p>
+<script>
+(function(){
+  const link = document.getElementById("contactLink");
+  link.addEventListener("click", e => {
+    e.preventDefault();
+
+    const subject = encodeURIComponent("DTM Studio Demo Request");
+    const body = encodeURIComponent("Hello! I’d like to request a demo of DTM Studio.");
+    const gmail = `https://mail.google.com/mail/?view=cm&fs=1&to=info@dtm-studio.org&su=${subject}&body=${body}`;
+
+    // Показываем уведомление
+    showDTMToast("📤 Opening mail client...");
+
+    // открывает Gmail в новой вкладке
+    window.open(gmail, "_blank", "noopener");
+    // параллельно пробует mailto
+    window.location.href = `mailto:info@dtm-studio.org?subject=${subject}&body=${body}`;
+  });
+
+  function showDTMToast(text) {
+    const toast = document.createElement("div");
+    toast.textContent = text;
+    Object.assign(toast.style, {
+      position: "fixed",
+      bottom: "24px",
+      left: "50%",
+      transform: "translateX(-50%)",
+      background: "rgba(33,181,89,0.12)",
+      border: "1px solid rgba(33,181,89,0.4)",
+      color: "#9be3b7",
+      padding: "10px 18px",
+      borderRadius: "10px",
+      fontFamily: "ui-monospace, Consolas, monospace",
+      fontSize: "14px",
+      zIndex: 9999,
+      opacity: "0",
+      transition: "opacity 0.5s ease, transform 0.5s ease",
+      boxShadow: "0 0 12px rgba(33,181,89,0.3)"
+    });
+    document.body.appendChild(toast);
+    requestAnimationFrame(() => {
+      toast.style.opacity = "1";
+      toast.style.transform = "translateX(-50%) translateY(-10px)";
+    });
+    setTimeout(() => {
+      toast.style.opacity = "0";
+      toast.style.transform = "translateX(-50%) translateY(0)";
+      setTimeout(() => toast.remove(), 600);
+    }, 1500);
+  }
+})();
+</script>
+
+
+
+      <p style="font-size:13px; color:rgba(155,227,183,0.5); margin-top:24px;">
+        No trackers • No forms • Just a human response.
+      </p>
     </div>
   </div>
 </section>
 
+
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-inner">
-    <p>© 2025 DTM Studio. All rights reserved.</p>
+    <p class="copyright">© 2025 DTM Studio. All rights reserved.</p>
+    <p class="hint">Press <span class="kbd">Ctrl</span> + <span class="kbd">~</span> to open terminal window</p>
     <div class="powered-by">
       <a href="https://www.namecheap.com" target="_blank" rel="noopener noreferrer">
         <img src="assets/namecheap.png" alt="Namecheap" />
@@ -235,6 +312,7 @@ X26.670000 Z-9.970502
     </div>
   </div>
 </footer>
+
 
 <!-- LIGHTBOX -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
@@ -556,6 +634,75 @@ function toggleTerminal(show) {
   });
 })();
 </script>
+
+<!-- DTM Core Ready Toast -->
+<div id="dtmToast">✅ DTM Core initialized.</div>
+
+<style>
+  #dtmToast {
+  position: fixed;
+  bottom: 72px; /* выше кнопки эмбиента */
+  right: 22px;
+  background: rgba(33,181,89,0.12);
+  border: 1px solid rgba(33,181,89,0.4);
+  color: #9be3b7;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 14px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  opacity: 0;
+  z-index: 9998; /* чуть ниже консоли, но выше контента */
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 12px rgba(33,181,89,0.25);
+  transform: translateY(10px);
+  transition: all 0.8s ease;
+}
+#dtmToast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+  }
+</style>
+
+<script>
+(function(){
+  const toast = document.getElementById("dtmToast");
+  setTimeout(() => toast.classList.add("show"), 600); // fade in
+  setTimeout(() => toast.classList.remove("show"), 2600); // fade out
+  setTimeout(() => toast.remove(), 4000);
+})();
+</script>
+
+<!-- Terminal Hint -->
+<div id="dtmHint">Press <span>Ctrl + ~</span> to open terminal window</div>
+
+<style>
+  #dtmHint {
+    position: fixed;
+    bottom: 10px;
+    left: 22px;
+    font-family: ui-monospace, Consolas, monospace;
+    font-size: 13px;
+    color: rgba(155, 227, 183, 0.4);
+    z-index: 9997;
+    user-select: none;
+    opacity: 0;
+    animation: hintFade 2s 2.5s forwards;
+  }
+
+  #dtmHint span {
+    color: rgba(33,181,89,0.8);
+  }
+
+  @keyframes hintFade {
+    to { opacity: 1; }
+  }
+
+  @media (max-width: 768px) {
+    #dtmHint { display: none; } /* скрываем на мобилках */
+  }
+</style>
 
 
 </body>
