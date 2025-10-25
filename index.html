@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DTM Studio — Precision made simple</title>
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="assets/style.css?v=3">
+  <link rel="stylesheet" href="assets/style.css?v=4">
+  <link rel="canonical" href="https://dtm-studio.org/">
+
 
   <!-- =====================
        META / SEO / SOCIAL
@@ -259,6 +261,18 @@ X26.670000 Z-9.970502
   onScroll();
 })();
 </script>
+
+<script>
+document.addEventListener('scroll', function() {
+  document.querySelectorAll('.card').forEach(function(card) {
+    const rect = card.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      card.classList.add('visible');
+    }
+  });
+});
+</script>
+
 
 </body>
 </html>
