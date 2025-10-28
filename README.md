@@ -16,5 +16,5 @@ It simplifies aspheric and spherical profile generation, supports multi-segment 
 
 ---
 
-© 2025 **DTM Studio** – Diamond Turning Manager  
+© 2025 DTM Studio. All rights reserved.
 Developed by DTM Studio
