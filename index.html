@@ -299,18 +299,113 @@ X26.670000 Z-9.970502
   </div>
 </section>
 
-
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-inner">
-    <p class="copyright">© 2025 DTM Studio. All rights reserved.</p>
-    <p class="hint">Press <span class="kbd">Ctrl</span> + <span class="kbd">~</span> to open terminal window</p>
+
+    <!-- Brand block -->
     <div class="powered-by">
       <a href="https://www.namecheap.com" target="_blank" rel="noopener noreferrer">
         <img src="assets/namecheap.png" alt="Namecheap" />
       </a>
+
+      <span class="divider">•</span>
+
+      <a href="https://www.linkedin.com/company/dtmstudio-official/" target="_blank" rel="noopener noreferrer" class="linkedin">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" />
+        <span>DTM Studio on LinkedIn</span>
+      </a>
     </div>
+
+    <!-- Footer info -->
+    <div class="footer-info">
+      <p class="copyright">© 2025 DTM Studio. All rights reserved.</p>
+      <p class="hint">Press <span class="kbd">Ctrl</span> + <span class="kbd">~</span> to open terminal window</p>
+    </div>
+
   </div>
+
+  <style>
+    .powered-by {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 12px; /* чуть больше, чтобы разделить визуально */
+    }
+
+    .powered-by img {
+      height: 26px;
+      transition: all 0.25s ease-in-out;
+      vertical-align: middle;
+    }
+
+    .powered-by .divider {
+      opacity: 0.4;
+      margin: 0 6px;
+      color: #4b5b4b;
+    }
+
+    /* Namecheap hover glow */
+    .powered-by a:first-child img:hover {
+      filter: drop-shadow(0 0 10px rgba(255, 102, 0, 0.8));
+      transform: scale(1.05);
+    }
+
+    /* LinkedIn link */
+    .linkedin {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #b8c6b8;
+      text-decoration: none;
+      transition: color 0.25s ease-in-out;
+    }
+
+    .linkedin img {
+      height: 22px;
+      filter: none;
+      transition: all 0.25s ease-in-out;
+    }
+
+    /* LinkedIn hover glow */
+    .linkedin:hover {
+      color: #0a66c2;
+    }
+
+    .linkedin:hover img {
+      filter: drop-shadow(0 0 8px rgba(10, 102, 194, 0.9));
+      transform: scale(1.05);
+    }
+
+    /* Copyright and system hint */
+    .footer-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      margin-top: 2px;
+    }
+
+    .copyright {
+      margin: 0;
+      font-size: 14px;
+      color: #9fad9f;
+    }
+
+    .hint {
+      font-size: 13px;
+      color: #667266;
+    }
+
+    .kbd {
+      background: #243229;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 13px;
+    }
+  </style>
 </footer>
 
 
@@ -635,44 +730,6 @@ function toggleTerminal(show) {
 })();
 </script>
 
-<!-- DTM Core Ready Toast -->
-<div id="dtmToast">✅ DTM Core initialized.</div>
-
-<style>
-  #dtmToast {
-  position: fixed;
-  bottom: 72px; /* выше кнопки эмбиента */
-  right: 22px;
-  background: rgba(33,181,89,0.12);
-  border: 1px solid rgba(33,181,89,0.4);
-  color: #9be3b7;
-  font-family: ui-monospace, Consolas, monospace;
-  font-size: 14px;
-  padding: 10px 16px;
-  border-radius: 10px;
-  opacity: 0;
-  z-index: 9998; /* чуть ниже консоли, но выше контента */
-  backdrop-filter: blur(6px);
-  box-shadow: 0 0 12px rgba(33,181,89,0.25);
-  transform: translateY(10px);
-  transition: all 0.8s ease;
-}
-#dtmToast.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-  }
-</style>
-
-<script>
-(function(){
-  const toast = document.getElementById("dtmToast");
-  setTimeout(() => toast.classList.add("show"), 600); // fade in
-  setTimeout(() => toast.classList.remove("show"), 2600); // fade out
-  setTimeout(() => toast.remove(), 4000);
-})();
-</script>
 
 <!-- Terminal Hint -->
 <div id="dtmHint">Press <span>Ctrl + ~</span> to open terminal window</div>

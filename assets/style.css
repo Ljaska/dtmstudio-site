@@ -709,4 +709,24 @@ body::before {
   }
 }
 
+/* ===== FIX LinkedIn footer link style ===== */
+.site-footer .linkedin {
+  color: #b8c6b8 !important;
+  text-decoration: none !important;
+}
+
+.site-footer .linkedin:hover {
+  color: #0a66c2 !important;
+  text-decoration: none !important;
+}
+
+.site-footer .linkedin img {
+  filter: none;
+  transition: all 0.25s ease-in-out;
+}
+
+.site-footer .linkedin:hover img {
+  filter: drop-shadow(0 0 8px rgba(10, 102, 194, 0.9));
+  transform: scale(1.05);
+}
 
