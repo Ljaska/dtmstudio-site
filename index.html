@@ -310,11 +310,21 @@ X26.670000 Z-9.970502
       </a>
 
       <span class="divider">•</span>
-
       <a href="https://www.linkedin.com/company/dtmstudio-official/" target="_blank" rel="noopener noreferrer" class="linkedin">
         <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" />
         <span>DTM Studio on LinkedIn</span>
       </a>
+	  
+		<span class="divider">•</span>
+	<a href="https://github.com/Ljaska" target="_blank" rel="noopener noreferrer" class="github">
+	<img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-white-icon.png"
+		 alt="GitHub Logo" />
+
+	  <span>DTM Studio on GitHub</span>
+	</a>
+
+
+	  
     </div>
 
     <!-- Footer info -->
@@ -405,6 +415,44 @@ X26.670000 Z-9.970502
       font-family: monospace;
       font-size: 13px;
     }
+	
+/* --- GitHub white glow (for white icon) --- */
+.site-footer .github {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #b8c6b8;
+  text-decoration: none;
+  transition: color 0.25s ease-in-out;
+}
+
+.site-footer .github img {
+  height: 28px;
+  transition: all 0.25s ease-in-out;
+  filter: brightness(1);
+}
+
+/* эффект при наведении */
+.site-footer .github:hover {
+  color: #ffffff;
+}
+
+.site-footer .github img {
+  height: 28px; /* ← вернуть нормальный размер */
+  width: auto;
+  transition: all 0.25s ease-in-out;
+  filter: brightness(1) saturate(1);
+}
+
+.site-footer .github:hover img {
+  filter: brightness(2.5)
+          drop-shadow(0 0 6px rgba(255,255,255,0.8))
+          drop-shadow(0 0 12px rgba(255,255,255,0.6))
+          drop-shadow(0 0 18px rgba(255,255,255,0.4));
+  transform: scale(1.16);
+}
+
+
   </style>
 </footer>
 

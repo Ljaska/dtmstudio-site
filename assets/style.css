@@ -730,3 +730,30 @@ body::before {
   transform: scale(1.05);
 }
 
+/* --- FIXED WHITE GLOW for GitHub SVG --- */
+.site-footer .github img {
+  height: 22px;
+  transition: all 0.25s ease-in-out;
+  filter: brightness(1) saturate(1);
+}
+
+.site-footer .github:hover img {
+  filter: brightness(3)
+          drop-shadow(0 0 6px rgba(255,255,255,0.8))
+          drop-shadow(0 0 14px rgba(255,255,255,0.6))
+          drop-shadow(0 0 20px rgba(255,255,255,0.4));
+  transform: scale(1.05);
+}
+
+/* текст тоже пусть светлеет */
+.site-footer .github {
+  color: #b8c6b8;
+  text-decoration: none;
+  transition: color 0.25s ease-in-out;
+}
+
+.site-footer .github:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
