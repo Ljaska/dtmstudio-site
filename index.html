@@ -166,6 +166,69 @@ X26.670000 Z-9.970502
   </div>
 </section>
 
+<!-- XYZ INTERFEROMETER CORRECTION -->
+<section id="xyz" class="section">
+  <div class="container">
+    <h2 class="section-title">Interferometer XYZ Correction</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Direct XYZ Import</h3>
+        <p>
+          Import surface data directly from an interferometer as XYZ point maps.
+          No manual preprocessing or external tools required.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Best-Fit Surface Removal</h3>
+        <p>
+          Automatic removal of best-fit sphere (piston, tilt, power) inside the defined
+          clear aperture before correction is generated.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Clear Aperture Masking</h3>
+        <p>
+          Corrections are calculated strictly inside the optical clear aperture,
+          preventing edge artifacts and unstable tool motion.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Nanometer-Level Precision</h3>
+        <p>
+          Surface error statistics are calculated in nanometers (PV / RMS),
+          ensuring full traceability between measurement and cutting.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Safe Correction Pipeline</h3>
+        <p>
+          XYZ data is converted into a controlled correction profile,
+          fully compatible with DTM Studio’s correction stacking and undo system.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Designed for SPDT</h3>
+        <p>
+          Built specifically for single-point diamond turning workflows —
+          no generic CAM assumptions, no raster artifacts.
+        </p>
+      </div>
+    </div>
+
+    <hr>
+    <p class="small">
+      XYZ correction is optional and integrates seamlessly with existing MOD-based workflows.
+    </p>
+  </div>
+</section>
+
+
 <!-- GALLERY -->
 <section id="gallery" class="section">
   <div class="container">
