@@ -482,35 +482,6 @@ hr {
 
 
 
-/* =====================
-   MICRO ANIMATIONS — DTM STYLE
-   ===================== */
-
-/* --- появление карточек при скролле --- */
-.card {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.3s ease;
-}
-
-/* как только карточка в зоне видимости */
-.card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* --- hover glow (электрический контур) --- */
-.card:hover {
-  box-shadow: 0 0 10px rgba(33,181,89,0.18);
-  border-color: rgba(33,181,89,0.4);
-  background: radial-gradient(circle at center, rgba(33,181,89,0.04), transparent 70%);
-  transition: all 0.35s ease;
-}
-
-
-
-
-
 
 /* =====================
    HERO FADE-IN ANIMATION
@@ -863,4 +834,34 @@ body::before {
   }
 }
 
+/* Reveal only when .reveal is used */
+.card.reveal{
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.3s ease;
+}
+.card.reveal.visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Keep hover glow */
+.card:hover{
+  box-shadow: 0 0 10px rgba(33,181,89,0.18);
+  border-color: rgba(33,181,89,0.4);
+  background: radial-gradient(circle at center, rgba(33,181,89,0.04), transparent 70%);
+}
+
+.site-footer .powered-by{
+  flex-wrap: wrap;
+  row-gap: 10px;
+}
+
+@media (max-width: 420px){
+  .site-footer .footer-legal{
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
 

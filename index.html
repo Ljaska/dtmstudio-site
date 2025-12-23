@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DTM Studio — Precision made simple</title>
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="assets/style.css?v=11">
+  <link rel="stylesheet" href="assets/style.css?v=12">
   <link rel="canonical" href="https://dtm-studio.org/">
 
 
@@ -178,7 +178,7 @@ X26.670000 Z-9.970502
   if (updates.length) last.textContent = updates[0].date;
 
   grid.innerHTML = updates.map(u => `
-    <div class="card update-card">
+    <div class="card update-card reveal">
       <div class="update-top">
         <span class="update-tag">${u.tag}</span>
         <span class="update-date">${u.date}</span>
@@ -197,32 +197,32 @@ X26.670000 Z-9.970502
     <h2 class="section-title">Highlights</h2>
 
     <div class="grid">
-      <div class="card">
+      <div class="card reveal">
         <h3>Less Manual Editing</h3>
         <p>Machine-ready output and predictable toolpaths — no copy/paste fixes before cutting.</p>
       </div>
 
-      <div class="card">
+      <div class="card reveal">
         <h3>Faster Iteration Cycles</h3>
         <p>Measure → correct → regenerate in minutes. Reduced setup time for routine jobs.</p>
       </div>
 
-      <div class="card">
+      <div class="card reveal">
         <h3>Reproducible Jobs</h3>
         <p>Projects stay consistent: parameters, corrections, and output are kept together.</p>
       </div>
 
-      <div class="card">
+      <div class="card reveal">
         <h3>Safe by Design</h3>
         <p>Validation and operator-focused checks reduce the chance of expensive mistakes.</p>
       </div>
 
-      <div class="card">
+      <div class="card reveal">
         <h3>Correction Stacking</h3>
         <p>Stack multiple corrections with undo. Scale, shift, compare, and avoid duplicates.</p>
       </div>
 
-      <div class="card">
+      <div class="card reveal">
         <h3>Advanced Workflows</h3>
         <p>Multi-segment surfaces and hybrid cutting support are built into the workflow.</p>
       </div>
@@ -241,52 +241,52 @@ X26.670000 Z-9.970502
     <h2 class="section-title">Core Features</h2>
 
     <div class="grid">
-      <div class="card">
+      <div class="card reveal">
         <h3>Machine-ready Output</h3>
         <p>Generate controller-compatible programs (.PGM / .NC) with consistent structure.</p>
       </div>
 
-      <div class="card">
+      <div class="card reveal">
         <h3>Geometry Presets</h3>
         <p>Fast setup for Sphere / Asphere / Convex / Concave without manual formula typing.</p>
       </div>
 
-      <div class="card">
+      <div class="card reveal">
         <h3>Tool Radius Mode</h3>
         <p>Programmable tool radius applied inside trajectory calculations — no double compensation.</p>
       </div>
 
-      <div class="card">
+      <div class="card reveal">
         <h3>MOD Corrections</h3>
         <p>Load MOD files, select side (Left / Right / Average), scale %, and apply accurately.</p>
       </div>
 
-      <div class="card">
+      <div class="card reveal">
         <h3>Correction Stack + Undo</h3>
         <p>Stack multiple corrections safely, prevent duplicates, and roll back any step.</p>
       </div>
 
-      <div class="card">
+      <div class="card reveal">
         <h3>Interferometer XYZ Correction</h3>
         <p>Import XYZ maps and generate controlled correction profiles with PV/RMS traceability.</p>
       </div>
 
-      <div class="card">
+      <div class="card reveal">
         <h3>Multi-segment Workflow</h3>
         <p>Combine spheres, aspheres, bevels, and flats into one continuous program.</p>
       </div>
 
-      <div class="card">
+      <div class="card reveal">
         <h3>Project Packaging</h3>
         <p>One-click save: project parameters, corrections, and generated output stored together.</p>
       </div>
 
-      <div class="card">
+      <div class="card reveal">
         <h3>Validation & Logs</h3>
         <p>Built-in checks and logging to reduce operator mistakes before the machine.</p>
       </div>
 
-      <div class="card">
+      <div class="card reveal">
         <h3>Optimus LDT Support</h3>
         <p>Hybrid cutting workflow support for laser-assisted diamond turning setups.</p>
       </div>
@@ -301,7 +301,7 @@ X26.670000 Z-9.970502
     <h2 class="section-title">Interferometer XYZ Correction</h2>
 
     <div class="grid">
-      <div class="card">
+      <div class="card reveal">
         <h3>Direct XYZ Import</h3>
         <p>
           Import interferometer surface data directly as XYZ point maps.
@@ -309,7 +309,7 @@ X26.670000 Z-9.970502
         </p>
       </div>
 
-      <div class="card">
+      <div class="card reveal">
         <h3>Best-Fit Surface Removal</h3>
         <p>
           Automatic removal of piston, tilt, and power inside the defined clear aperture
@@ -317,7 +317,7 @@ X26.670000 Z-9.970502
         </p>
       </div>
 
-      <div class="card">
+      <div class="card reveal">
         <h3>Clear Aperture Control</h3>
         <p>
           Corrections are calculated strictly inside the optical clear aperture,
@@ -325,7 +325,7 @@ X26.670000 Z-9.970502
         </p>
       </div>
 
-      <div class="card">
+      <div class="card reveal">
         <h3>Nanometer-Scale Metrics</h3>
         <p>
           PV and RMS are calculated in nanometers, keeping measurement and cutting
@@ -333,7 +333,7 @@ X26.670000 Z-9.970502
         </p>
       </div>
 
-      <div class="card">
+      <div class="card reveal">
         <h3>SPDT-Safe Correction Pipeline</h3>
         <p>
           XYZ data is converted into a controlled radial correction profile —
@@ -341,7 +341,7 @@ X26.670000 Z-9.970502
         </p>
       </div>
 
-      <div class="card">
+      <div class="card reveal">
         <h3>Integrated Workflow</h3>
         <p>
           Interferometer corrections integrate seamlessly with MOD-based correction stacking,
@@ -407,7 +407,7 @@ X26.670000 Z-9.970502
   <div class="container">
     <h2 class="section-title">About</h2>
 
-    <div class="card">
+    <div class="card reveal">
       <h3>✦ DTM Studio — Diamond Turning Manager</h3>
 
       <p>
@@ -437,7 +437,7 @@ X26.670000 Z-9.970502
 <section id="contact" class="section">
   <div class="container">
     <h2 class="section-title">Request Demo</h2>
-    <div class="form card" style="text-align:center; padding:36px; background:rgba(10,15,14,0.9); border:1px solid rgba(33,181,89,0.25); box-shadow:0 0 25px rgba(33,181,89,0.08);">
+    <div class="form card reveal" style="text-align:center; padding:36px; background:rgba(10,15,14,0.9); border:1px solid rgba(33,181,89,0.25); box-shadow:0 0 25px rgba(33,181,89,0.08);">
       
       <p style="font-size:16px; color:#bdecd0; margin-bottom:20px;">
         Want to explore <strong>DTM Studio</strong> or discuss features with the developer?<br>
@@ -525,37 +525,23 @@ X26.670000 Z-9.970502
 <footer class="site-footer">
   <div class="footer-inner">
 
-    <!-- Brand block -->
-    <div class="powered-by">
-      <a href="https://www.namecheap.com" target="_blank" rel="noopener noreferrer">
-        <img src="assets/namecheap.png" alt="Namecheap" />
-      </a>
+	<div class="powered-by">
+	  <a href="https://www.namecheap.com" target="_blank" rel="noopener noreferrer">
+		<img src="assets/namecheap.png" alt="Namecheap" />
+	  </a>
 
-      <!--  <span class="divider">•</span> -->
-      <a href="https://www.linkedin.com/company/dtmstudio-official/" target="_blank" rel="noopener noreferrer" class="linkedin">
-        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" />
-       <!-- <span>DTM Studio on LinkedIn</span> -->
-      </a>
-	  
-		<!--  <span class="divider">•</span> -->
-	<a href="https://github.com/Ljaska" target="_blank" rel="noopener noreferrer" class="github">
-	<img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-white-icon.png"
-		 alt="GitHub Logo" />
+	  <a href="https://www.linkedin.com/company/dtmstudio-official/" target="_blank" rel="noopener noreferrer" class="linkedin">
+		<img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" />
+	  </a>
 
-	  <!-- <span>DTM Studio on GitHub</span> -->
-	  
-		<!--  <span class="divider">•</span> -->
-	<a href="/privacy/" class="footer-legal">Privacy Policy</a>
+	  <a href="https://github.com/Ljaska" target="_blank" rel="noopener noreferrer" class="github">
+		<img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-white-icon.png" alt="GitHub Logo" />
+	  </a>
 
-	<!--  <span class="divider">•</span> -->
-	<a href="/cookies/" class="footer-legal">Cookie Policy</a>
+	  <a href="/privacy/" class="footer-legal">Privacy Policy</a>
+	  <a href="/cookies/" class="footer-legal">Cookie Policy</a>
+	</div>
 
-	  
-	</a>
-
-
-	  
-    </div>
 
     <!-- Footer info -->
     <div class="footer-info">
@@ -729,15 +715,20 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 <script>
-document.addEventListener('scroll', function() {
-  document.querySelectorAll('.card').forEach(function(card) {
-    const rect = card.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      card.classList.add('visible');
-    }
-  });
-});
+(function(){
+  function reveal(){
+    document.querySelectorAll('.card.reveal').forEach(card => {
+      const rect = card.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 80) card.classList.add('visible');
+    });
+  }
+  window.addEventListener('scroll', reveal, { passive: true });
+  window.addEventListener('load', reveal);
+  window.addEventListener('resize', reveal);
+  reveal();
+})();
 </script>
+
 
 <!-- DTM Ambient Hum -->
 <audio id="dtmHum" src="assets/hhum.mp3" loop preload="auto"></audio>
