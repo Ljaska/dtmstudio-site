@@ -23,6 +23,7 @@ html, body {
   font-family: Inter, Arial, Helvetica, sans-serif;
   background: transparent;
   color: var(--text);
+  scroll-padding-top: 46px;
 }
 a {
   color: #9be3b7;
