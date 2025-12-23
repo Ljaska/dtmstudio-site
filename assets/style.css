@@ -757,3 +757,46 @@ body::before {
   text-decoration: none;
 }
 
+.disclaimer {
+  max-width: 820px;
+  margin: 6px auto 0;
+  font-size: 12px;
+  line-height: 1.45;
+  color: rgba(184,198,184,0.55);
+}
+
+.updates-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  margin: 6px 0 16px;
+}
+
+.update-card{
+  padding:18px;
+}
+
+.update-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.update-tag{
+  font-size:12px;
+  padding:4px 10px;
+  border-radius:999px;
+  border:1px solid rgba(33,181,89,0.35);
+  background: rgba(33,181,89,0.08);
+  color:#9be3b7;
+  font-weight:600;
+}
+
+.update-date{
+  font-family: ui-monospace, Consolas, monospace;
+  font-size:12px;
+  color: rgba(184,198,184,0.75);
+}
+

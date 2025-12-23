@@ -13,7 +13,7 @@
        META / SEO / SOCIAL
        ===================== -->
   <meta name="title" content="DTM Studio — Precision made simple">
-  <meta name="description" content="DTM Studio — Diamond Turning Manager built for SPDT operators. Generate G-code for Precitech & Nanotech machines, apply profile corrections, and manage projects with precision — all in one place.">
+  <meta name="description" content="DTM Studio is SPDT software for diamond turning operators. Generate machine-ready G-code, apply measured corrections (MOD and interferometer XYZ), and keep every job reproducible — in one workflow.">
   <meta name="keywords" content="DTM Studio, diamond turning, Precitech, Nanotech, MOD file, G-code, optics manufacturing, asphere, SPDT software, profile correction">
   <meta name="author" content="DTM Studio">
 
@@ -21,14 +21,14 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dtm-studio.org/">
   <meta property="og:title" content="DTM Studio — Precision made simple">
-  <meta property="og:description" content="Precision optics software for SPDT operators. Fast, safe, and automated — DTM Studio simplifies your entire workflow.">
+  <meta property="og:description" content="SPDT software for diamond turning operators. Machine-ready output, correction stacking (MOD + interferometer XYZ), and reproducible jobs — without manual edits.">
   <meta property="og:image" content="https://dtm-studio.org/assets/preview.png">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://dtm-studio.org/">
   <meta name="twitter:title" content="DTM Studio — Precision made simple">
-  <meta name="twitter:description" content="Built for SPDT operators — manage projects, apply corrections, and generate G-code faster and safer.">
+  <meta name="twitter:description" content="SPDT software for diamond turning operators. Machine-ready output, correction stacking (MOD + interferometer XYZ), and reproducible jobs — without manual edits.">
   <meta name="twitter:image" content="https://dtm-studio.org/assets/preview.png">
 
   <style>
@@ -48,6 +48,7 @@
       </a>
     </div>
     <div class="menu">
+	  <a href="#updates">What's New</a>
       <a href="#features">Features</a>
       <a href="#gallery">Gallery</a>
       <a href="#about">About</a>
@@ -102,69 +103,197 @@ X26.670000 Z-9.970502
 </div>
 
 <!-- HERO -->
+
 <section id="top" class="hero">
   <div class="container wrap">
     <div>
       <span class="badge">Diamond Turning Manager</span>
       <h1>DTM Studio — Precision made simple</h1>
-      <p>Built by SPDT operators for daily work on Precitech and Nanotech machines.<br>
-      Generate G-code, apply profile corrections, and manage projects faster and safer — all in one place.</p>
+      <p>
+        Purpose-built SPDT software for diamond turning workflows.<br>
+        Generate machine-ready programs, apply measured corrections (MOD and interferometer XYZ),
+        and keep every job reproducible — without manual edits.
+      </p>
+
       <div style="display:flex;gap:12px;flex-wrap:wrap">
         <a class="btn" href="#features">Explore Features</a>
         <a class="btn btn-outline" href="#gallery">See Gallery</a>
       </div>
     </div>
+
     <div style="display:flex;justify-content:center;align-items:center">
       <img src="assets/dtmlogo.png" alt="DTM Logo" style="max-width:80%;height:auto;border-radius:16px">
     </div>
   </div>
 </section>
 
+
+<section id="updates" class="section">
+  <div class="container">
+    <h2 class="section-title">What's New</h2>
+
+    <div class="updates-head">
+      <p class="small" style="margin:0">
+        Short release notes and progress updates. Last update: <span id="dtmLastUpdate">—</span>
+      </p>
+      <a class="btn btn-outline" href="https://www.linkedin.com/company/dtmstudio-official/" target="_blank" rel="noopener">Follow on LinkedIn</a>
+    </div>
+
+    <div id="updatesGrid" class="grid"></div>
+
+    <hr>
+    <p class="small" style="margin:0">
+      Want to follow progress? Updates are also posted on LinkedIn.
+    </p>
+  </div>
+</section>
+
+<script>
+(function(){
+  const updates = [
+    {
+      date: "2025-12-23",
+      title: "Interferometer XYZ Correction",
+      text: "Direct XYZ import, best-fit surface removal, clear aperture masking, PV/RMS in nm, and safe correction stacking.",
+      tag: "Release"
+    },
+    {
+      date: "2025-12-22",
+      title: "2D/3D Visualization",
+      text: "Improved preview workflow and cleaner screenshots for real production environment.",
+      tag: "Update"
+    },
+    {
+      date: "2025-12-20",
+      title: "Workflow & Safety",
+      text: "More parameter validation and fewer operator mistakes before code reaches the machine.",
+      tag: "Update"
+    }
+  ];
+
+  const grid = document.getElementById("updatesGrid");
+  const last = document.getElementById("dtmLastUpdate");
+  if (!grid) return;
+
+  if (updates.length) last.textContent = updates[0].date;
+
+  grid.innerHTML = updates.map(u => `
+    <div class="card update-card">
+      <div class="update-top">
+        <span class="update-tag">${u.tag}</span>
+        <span class="update-date">${u.date}</span>
+      </div>
+      <h3 style="margin:10px 0 8px">${u.title}</h3>
+      <p style="margin:0;color:var(--muted)">${u.text}</p>
+    </div>
+  `).join("");
+})();
+</script>
+
+
 <!-- HIGHLIGHTS -->
 <section id="highlights" class="section">
   <div class="container">
     <h2 class="section-title">Highlights</h2>
+
     <div class="grid">
+      <div class="card">
+        <h3>Less Manual Editing</h3>
+        <p>Machine-ready output and predictable toolpaths — no copy/paste fixes before cutting.</p>
+      </div>
 
-      <div class="card"><h3>Direct Machine Output</h3><p>Generate clean G-code for Precitech (.PGM) and Nanotech (.NC) without manual edits.</p></div>
-      <div class="card"><h3>Optimus LDT Support</h3><p>Full compatibility with Micro-LAM Optimus laser-assisted diamond turning. Generate ready code for hybrid cutting — standard and laser-enabled, without extra steps.</p></div>
-      <div class="card"><h3>Programmable Tool Radius</h3><p>Explicit radius in every trajectory. No double compensation, no hidden surprises.</p></div>
-      <div class="card"><h3>Correction Stacking</h3><p>Load multiple MOD files, scale by %, shift in X, and undo duplicates instantly.</p></div>
-      <div class="card"><h3>Profile Safety</h3><p>Every step is logged and validated — minimizing operator mistakes before they reach the machine.</p></div>
-      <div class="card"><h3>One-click Project Save</h3><p>Form, corrections, and code stored together. Reopen anytime without re-entering.</p></div>
-      <div class="card"><h3>Operator Speed Boost</h3><p>Routine prep reduced to seconds: Correct-and-Go instead of endless edits.</p></div>
-      <div class="card"><h3>Universal Cutting Modes</h3><p>Create programs for both sides, with or without loops, chamfers included — all in one click.</p></div>
-      <div class="card"><h3>Multi-segment Workflow</h3><p>From spheres to aspheres, bevels and flats — combine them seamlessly in one program.</p></div>
+      <div class="card">
+        <h3>Faster Iteration Cycles</h3>
+        <p>Measure → correct → regenerate in minutes. Reduced setup time for routine jobs.</p>
+      </div>
 
+      <div class="card">
+        <h3>Reproducible Jobs</h3>
+        <p>Projects stay consistent: parameters, corrections, and output are kept together.</p>
+      </div>
+
+      <div class="card">
+        <h3>Safe by Design</h3>
+        <p>Validation and operator-focused checks reduce the chance of expensive mistakes.</p>
+      </div>
+
+      <div class="card">
+        <h3>Correction Stacking</h3>
+        <p>Stack multiple corrections with undo. Scale, shift, compare, and avoid duplicates.</p>
+      </div>
+
+      <div class="card">
+        <h3>Advanced Workflows</h3>
+        <p>Multi-segment surfaces and hybrid cutting support are built into the workflow.</p>
+      </div>
     </div>
+
     <hr>
-    <p class="small">DTM Studio is developed independently in Riga • Focused on real SPDT operator needs</p>
+    <p class="small">Developed in Riga • Focused on real SPDT operator needs</p>
   </div>
 </section>
+
 
 
 <!-- FEATURES -->
 <section id="features" class="section">
   <div class="container">
     <h2 class="section-title">Core Features</h2>
+
     <div class="grid">
-      <div class="card"><h3>G-code Generation</h3><p>Create ready-to-cut code for Precitech (.PGM) and Nanotech (.NC) machines without manual edits.</p></div>
-      <div class="card"><h3>Profile Corrections</h3><p>Load MOD files, choose side (Left / Right / Average), scale by percentage, and apply with precision.</p></div>
-      <div class="card"><h3>Corrections Stack with Undo</h3><p>Safely stack multiple corrections, prevent duplicates, and revert steps at any time.</p></div>
-      <div class="card"><h3>Tool Radius Mode</h3><p>Programmable tool radius built directly into trajectory calculations, avoiding double compensation.</p></div>
-      <div class="card"><h3>Save Order</h3><p>One-click save: project, G-codes, and corrections are stored together in a single folder.</p></div>
-      <div class="card"><h3>Correct and Go</h3><p>Fast correction cycle — apply measured data, regenerate, and cut again without extra steps.</p></div>
-      <div class="card"><h3>Loop File One-Click</h3><p>Create programs for all turning sides (with or without bevels) plus ready loop file in a single action.</p></div>
-      <div class="card"><h3>Surface + Diameter Turning</h3><p>Simplified workflow for cutting both profile and cylinder in one setup.</p></div>
-      <div class="card"><h3>Error Prevention</h3><p>Built-in checks minimize operator mistakes and ensure correct program parameters.</p></div>
-      <div class="card"><h3>Speed</h3><p>Preparation time reduced several times compared to manual code editing.</p></div>
-      <div class="card"><h3>Simplified Geometry Presets</h3><p>Quick generation of Sphere, Asphere, Convex, and Concave surfaces without manual formulas.</p></div>
-      <div class="card"><h3>Optimus LDT Support</h3><p>Full compatibility with Micro-LAM Optimus laser-assisted diamond turning.</p></div>
+      <div class="card">
+        <h3>Machine-ready Output</h3>
+        <p>Generate controller-compatible programs (.PGM / .NC) with consistent structure.</p>
+      </div>
+
+      <div class="card">
+        <h3>Geometry Presets</h3>
+        <p>Fast setup for Sphere / Asphere / Convex / Concave without manual formula typing.</p>
+      </div>
+
+      <div class="card">
+        <h3>Tool Radius Mode</h3>
+        <p>Programmable tool radius applied inside trajectory calculations — no double compensation.</p>
+      </div>
+
+      <div class="card">
+        <h3>MOD Corrections</h3>
+        <p>Load MOD files, select side (Left / Right / Average), scale %, and apply accurately.</p>
+      </div>
+
+      <div class="card">
+        <h3>Correction Stack + Undo</h3>
+        <p>Stack multiple corrections safely, prevent duplicates, and roll back any step.</p>
+      </div>
+
+      <div class="card">
+        <h3>Interferometer XYZ Correction</h3>
+        <p>Import XYZ maps and generate controlled correction profiles with PV/RMS traceability.</p>
+      </div>
+
+      <div class="card">
+        <h3>Multi-segment Workflow</h3>
+        <p>Combine spheres, aspheres, bevels, and flats into one continuous program.</p>
+      </div>
+
+      <div class="card">
+        <h3>Project Packaging</h3>
+        <p>One-click save: project parameters, corrections, and generated output stored together.</p>
+      </div>
+
+      <div class="card">
+        <h3>Validation & Logs</h3>
+        <p>Built-in checks and logging to reduce operator mistakes before the machine.</p>
+      </div>
+
+      <div class="card">
+        <h3>Optimus LDT Support</h3>
+        <p>Hybrid cutting workflow support for laser-assisted diamond turning setups.</p>
+      </div>
     </div>
-    <hr>
-    <p class="small">DTM Studio is an independent software project; third-party trademarks are not referenced.</p>
-  </div>
+	
 </section>
+
 
 <!-- XYZ INTERFEROMETER CORRECTION -->
 <section id="xyz" class="section">
@@ -175,104 +304,134 @@ X26.670000 Z-9.970502
       <div class="card">
         <h3>Direct XYZ Import</h3>
         <p>
-          Import surface data directly from an interferometer as XYZ point maps.
-          No manual preprocessing or external tools required.
+          Import interferometer surface data directly as XYZ point maps.
+          No external preprocessing or format conversion required.
         </p>
       </div>
 
       <div class="card">
         <h3>Best-Fit Surface Removal</h3>
         <p>
-          Automatic removal of best-fit sphere (piston, tilt, power) inside the defined
-          clear aperture before correction is generated.
+          Automatic removal of piston, tilt, and power inside the defined clear aperture
+          before correction is generated.
         </p>
       </div>
 
       <div class="card">
-        <h3>Clear Aperture Masking</h3>
+        <h3>Clear Aperture Control</h3>
         <p>
           Corrections are calculated strictly inside the optical clear aperture,
-          preventing edge artifacts and unstable tool motion.
+          avoiding edge artifacts and unstable tool motion.
         </p>
       </div>
 
       <div class="card">
-        <h3>Nanometer-Level Precision</h3>
+        <h3>Nanometer-Scale Metrics</h3>
         <p>
-          Surface error statistics are calculated in nanometers (PV / RMS),
-          ensuring full traceability between measurement and cutting.
+          PV and RMS are calculated in nanometers, keeping measurement and cutting
+          results directly comparable.
         </p>
       </div>
 
       <div class="card">
-        <h3>Safe Correction Pipeline</h3>
+        <h3>SPDT-Safe Correction Pipeline</h3>
         <p>
-          XYZ data is converted into a controlled correction profile,
-          fully compatible with DTM Studio’s correction stacking and undo system.
+          XYZ data is converted into a controlled radial correction profile —
+          not a raster heightmap — fully compatible with diamond turning.
         </p>
       </div>
 
       <div class="card">
-        <h3>Designed for SPDT</h3>
+        <h3>Integrated Workflow</h3>
         <p>
-          Built specifically for single-point diamond turning workflows —
-          no generic CAM assumptions, no raster artifacts.
+          Interferometer corrections integrate seamlessly with MOD-based correction stacking,
+          undo, and project management.
         </p>
       </div>
     </div>
 
     <hr>
     <p class="small">
-      XYZ correction is optional and integrates seamlessly with existing MOD-based workflows.
+      Designed specifically for single-point diamond turning.
+      No generic CAM assumptions. No raster artifacts.
     </p>
   </div>
 </section>
+
 
 
 <!-- GALLERY -->
 <section id="gallery" class="section">
   <div class="container">
     <h2 class="section-title">Gallery</h2>
+
     <div class="gallery">
-      <a href="assets/Screenshot1.png" data-lightbox="dtm-gallery" data-title="Precitech G-code preview">
-        <img src="assets/Screenshot1.png" alt="Precitech">
-      </a>
+
+
       <a href="assets/Screenshot2.png" data-lightbox="dtm-gallery" data-title="Nanotech G-code preview">
         <img src="assets/Screenshot2.png" alt="Nanotech">
       </a>
+
       <a href="assets/Screenshot3.png" data-lightbox="dtm-gallery" data-title="Profile corrections window">
         <img src="assets/Screenshot3.png" alt="Corrections">
       </a>
-      <a href="assets/Screenshot4.png" data-lightbox="dtm-gallery" data-title="Main DTM Studio interface">
-        <img src="assets/Screenshot4.png" alt="Main">
+
+
+      <!-- NEW screenshots -->
+      <a href="assets/DTM-Studio-2D-Visualization.png" data-lightbox="dtm-gallery" data-title="2D Toolpath Visualization">
+        <img src="assets/DTM-Studio-2D-Visualization.png" alt="2D Visualization">
+      </a>
+
+      <a href="assets/DTM-Studio-3D-Visualization.png" data-lightbox="dtm-gallery" data-title="3D Toolpath Visualization">
+        <img src="assets/DTM-Studio-3D-Visualization.png" alt="3D Visualization">
+      </a>
+
+      <a href="assets/DTM-Studio-Interface-GUI.png" data-lightbox="dtm-gallery" data-title="DTM Studio Interface">
+        <img src="assets/DTM-Studio-Interface-GUI.png" alt="GUI">
+      </a>
+
+      <a href="assets/DTM-Studio-Interferometer-Correction.png" data-lightbox="dtm-gallery" data-title="Interferometer-based Surface Correction">
+        <img src="assets/DTM-Studio-Interferometer-Correction.png" alt="Interferometer Correction">
       </a>
     </div>
-    <p class="small" style="margin-top:12px">Screenshots from the real DTM Studio environment.</p>
+
+    <p class="small" style="margin-top:12px">
+      Screenshots from the real DTM Studio environment.
+    </p>
   </div>
 </section>
+
 
 <!-- ABOUT -->
 <section id="about" class="section">
   <div class="container">
     <h2 class="section-title">About</h2>
+
     <div class="card">
       <h3>✦ DTM Studio — Diamond Turning Manager</h3>
-      <p><strong>DTM Studio</strong> is software developed in Riga by an SPDT machine operator, built specifically for operators. It addresses the everyday workflow on Precitech and Nanotech machines and eliminates the routine steps where most time is wasted or mistakes often occur.</p>
-      <p>Instead of manually editing code or switching between multiple utilities, DTM brings everything into one place.</p>
 
-      <h4>What you can do in DTM Studio:</h4>
+      <p>
+        <strong>DTM Studio</strong> is independent SPDT software developed in Riga by a machine operator.
+        It focuses on daily production workflow: faster preparation, fewer manual edits, and safer output before cutting.
+      </p>
+
+      <p>
+        The goal is simple: keep the operator in control while making the workflow faster, cleaner, and reproducible.
+      </p>
+
+      <h4>Core focus</h4>
       <ul>
-        <li><strong>Generate G-code</strong> for Precitech (.PGM) and Nanotech (.NC).</li>
-        <li><strong>Work with profile corrections:</strong> load MOD files, select side, scale by percentage, and stack multiple corrections.</li>
-        <li><strong>Tool radius support:</strong> included directly in trajectory calculations.</li>
-        <li><strong>Flexible project structure:</strong> stores form, corrections, and parameters together.</li>
-        <li><strong>Optimus LDT support:</strong> hybrid cutting code — standard and laser-enabled.</li>
-        <li><strong>Log and error control:</strong> tracks every step, reducing risk of mistakes.</li>
+        <li><strong>Machine-ready output</strong> with predictable structure.</li>
+        <li><strong>Measured corrections</strong> (MOD and interferometer XYZ) with safe stacking and undo.</li>
+        <li><strong>Operator safety</strong> via validation, checks, and traceable workflow.</li>
+        <li><strong>Real production usability</strong> — built around SPDT shop-floor routines.</li>
       </ul>
+
       <p class="small">Status: Active development • Region: EU</p>
     </div>
   </div>
 </section>
+
 
 <!-- CONTACT -->
 <section id="contact" class="section">
@@ -393,6 +552,12 @@ X26.670000 Z-9.970502
     <!-- Footer info -->
     <div class="footer-info">
       <p class="copyright">© 2025 DTM Studio. All rights reserved.</p>
+	  <p class="disclaimer">
+	  References to Precitech and Nanotech are for compatibility and identification purposes only.
+	  All trademarks are the property of their respective owners.
+	  DTM Studio is not affiliated with, sponsored by, or endorsed by any machine manufacturer.
+	</p>
+
       <p class="hint">Press <span class="kbd">Ctrl</span> + <span class="kbd">~</span> to open terminal window</p>
     </div>
 
@@ -557,7 +722,7 @@ document.addEventListener('scroll', function() {
 });
 </script>
 
-<<!-- DTM Ambient Hum -->
+<!-- DTM Ambient Hum -->
 <audio id="dtmHum" src="assets/hhum.mp3" loop preload="auto"></audio>
 
 <script>
