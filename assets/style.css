@@ -17,6 +17,16 @@
 * {
   box-sizing: border-box;
 }
+
+html{
+  scrollbar-gutter: stable;
+}
+
+body{
+  overflow-y: scroll;
+}
+
+
 html, body {
   margin: 0;
   padding: 0;
@@ -488,20 +498,14 @@ hr {
    ===================== */
 .hero {
   opacity: 0;
-  transform: translateY(20px);
-  animation: heroFade 1.2s ease-out forwards;
+  animation: heroFade 0.8s ease-out forwards;
 }
 
 @keyframes heroFade {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
+
 
 /* =====================
    HIGHLIGHTS FADE-IN ANIMATION
