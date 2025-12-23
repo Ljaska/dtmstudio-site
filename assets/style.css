@@ -835,3 +835,32 @@ body::before {
   row-gap: 10px;
 }
 
+@media (max-width: 640px) {
+
+  /* скрываем текстовое меню */
+  .menu a:not(.btn) {
+    display: none;
+  }
+
+  /* кнопка остаётся */
+  .menu .btn {
+    margin-left: 0;
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+
+  /* ужимаем шапку */
+  .nav .inner {
+    padding: 6px 12px;
+  }
+
+  .brand {
+    height: 44px;
+  }
+
+  .brand img {
+    max-height: 32px;
+  }
+}
+
+
