@@ -801,3 +801,37 @@ body::before {
   color: rgba(184,198,184,0.75);
 }
 
+/* ===== Footer legal links ===== */
+.site-footer .footer-legal{
+  display:inline-flex;
+  align-items:center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(33,181,89,0.22);
+  background: rgba(33,181,89,0.06);
+  color:#b8c6b8;
+  text-decoration:none;
+  font-size:13px;
+  line-height:1;
+  transition: all 0.25s ease-in-out;
+}
+
+.site-footer .footer-legal:hover{
+  color:#ffffff;
+  border-color: rgba(33,181,89,0.45);
+  background: rgba(33,181,89,0.10);
+  text-decoration:none;
+}
+
+
+.site-footer .footer-legal:focus-visible{
+  outline: 2px solid rgba(33,181,89,0.55);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+.site-footer .powered-by{
+  flex-wrap: wrap;
+  row-gap: 10px;
+}
+
