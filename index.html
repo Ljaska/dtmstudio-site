@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DTM Studio — Industrial SPDT Software</title>
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="assets/style.css?v=18">
+  <link rel="stylesheet" href="assets/style.css?v=19">
   <link rel="canonical" href="https://dtm-studio.org/">
 
   <meta name="title" content="DTM Studio — Industrial SPDT Software">
@@ -849,7 +849,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <div id="dtmTerminal">
   <pre id="dtmLog"></pre>
-  <div id="dtmInputWrap"><span id="dtmPrompt">&gt;</span><input id="dtmInput" autocomplete="off"></div>
+  <div id="dtmInputWrap">
+    <label for="dtmInput" class="sr-only">DTM terminal command input</label>
+    <span id="dtmPrompt">&gt;</span>
+    <input id="dtmInput" autocomplete="off">
+  </div>
 </div>
 
 <style>
