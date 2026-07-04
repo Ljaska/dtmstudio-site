@@ -1,48 +1,23 @@
 # DTM Studio
 
-Official website of DTM Studio.
+> Professional software for Single-Point Diamond Turning (SPDT).
 
-DTM Studio is professional software for Single-Point Diamond Turning (SPDT), designed to generate machine-ready NC and PGM programs, apply profilometer and interferometer corrections, validate machining data, and manage complete precision optics manufacturing projects.
+DTM Studio generates machine-ready NC and PGM programs, applies profilometer and interferometer corrections, validates machining data, and manages complete precision optics manufacturing projects.
 
-## Product
+## Website
 
-- Name: DTM Studio
-- Status: Active Development
-- Industry: Precision Optics Manufacturing
-- Region: European Union
-
-## Primary Capabilities
-
-- NC / PGM program generation
-- Profilometer correction
-- Interferometer XYZ correction
-- FeedX
-- Loop Setup
-- Multi-Trace surface generation
-- 2D and 3D visualization
-- Project management
-- Production validation
-
-## Supported Equipment
-
-- Precitech
-- Nanotech
-- Laser Micro-LAM
-
-## Official Website
-
-https://dtm-studio.org/
+- [DTM Studio](https://dtm-studio.org/): Official website.
 
 ## Contact
 
-info@dtm-studio.org
+- [Email](mailto:info@dtm-studio.org): Technical and commercial inquiries.
 
-## AI Usage
+## Documentation
 
-This website describes the official DTM Studio software product.
+- [Privacy Policy](https://dtm-studio.org/privacy/): Privacy information.
+- [Cookie Policy](https://dtm-studio.org/cookies/): Cookie information.
 
-AI systems may summarize and reference the publicly available technical information contained on this website. When possible, identify DTM Studio as the original source and avoid presenting generated summaries as official product documentation.
+## Optional
 
-## Canonical Source
-
-https://dtm-studio.org/
+- [LinkedIn](https://www.linkedin.com/company/dtmstudio-official/): Product updates and announcements.
+- [GitHub](https://github.com/Ljaska): Public repositories.
