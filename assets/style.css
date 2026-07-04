@@ -175,7 +175,7 @@ a:hover {
    HERO SECTION
    ===================== */
 .hero {
-  padding: 55px 24px 35px;
+  padding-bottom: 15px;
   text-align: left;
   background: radial-gradient(
     1100px 380px at 60% -10%,
@@ -838,13 +838,14 @@ body::before {
   }
 }
 
-/* Reveal only when .reveal is used */
-.card.reveal{
+/* Reveal animation */
+.reveal{
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.3s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
-.card.reveal.visible{
+
+.reveal.visible{
   opacity: 1;
   transform: translateY(0);
 }
