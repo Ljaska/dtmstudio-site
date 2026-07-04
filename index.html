@@ -3,482 +3,769 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DTM Studio — Precision made simple</title>
+  <title>DTM Studio — Industrial SPDT Software</title>
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="assets/style.css?v=14">
+  <link rel="stylesheet" href="assets/style.css?v=17">
   <link rel="canonical" href="https://dtm-studio.org/">
 
-
-  <!-- =====================
-       META / SEO / SOCIAL
-       ===================== -->
-  <meta name="title" content="DTM Studio — Precision made simple">
-  <meta name="description" content="DTM Studio is SPDT software for diamond turning operators. Generate machine-ready G-code, apply measured corrections (MOD and interferometer XYZ), and keep every job reproducible — in one workflow.">
-  <meta name="keywords" content="DTM Studio, diamond turning, Precitech, Nanotech, MOD file, G-code, optics manufacturing, asphere, SPDT software, profile correction">
+  <meta name="title" content="DTM Studio — Industrial SPDT Software">
+  <meta name="description" content="DTM Studio is professional SPDT software for precision diamond turning. Generate machine-ready NC and PGM programs, apply profilometer and interferometer corrections, and accelerate precision optics manufacturing.">
+  <meta name="keywords" content="DTM Studio, SPDT software, diamond turning, Precitech, Nanotech, G-code, MOD correction, interferometer XYZ correction, optics manufacturing, asphere, FeedX, Multi-Trace">
   <meta name="author" content="DTM Studio">
 
-  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dtm-studio.org/">
-  <meta property="og:title" content="DTM Studio — Precision made simple">
-  <meta property="og:description" content="SPDT software for diamond turning operators. Machine-ready output, correction stacking (MOD + interferometer XYZ), and reproducible jobs — without manual edits.">
+  <meta property="og:title" content="DTM Studio — Industrial SPDT Software">
+  <meta property="og:description" content="Professional SPDT software for machine-ready output, measurement-based correction, validation, and complete diamond turning project workflow.">
   <meta property="og:image" content="https://dtm-studio.org/assets/preview.png">
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://dtm-studio.org/">
-  <meta name="twitter:title" content="DTM Studio — Precision made simple">
-  <meta name="twitter:description" content="SPDT software for diamond turning operators. Machine-ready output, correction stacking (MOD + interferometer XYZ), and reproducible jobs — without manual edits.">
+  <meta name="twitter:title" content="DTM Studio — Industrial SPDT Software">
+  <meta name="twitter:description" content="Professional SPDT software for machine-ready output, measurement-based correction, validation, and complete diamond turning project workflow.">
   <meta name="twitter:image" content="https://dtm-studio.org/assets/preview.png">
 
   <style>
     html { scroll-behavior: smooth; }
+
+    .hero-kicker {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 0 0 18px;
+    }
+
+    .hero-kicker span,
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(33,181,89,0.32);
+      background: rgba(33,181,89,0.08);
+      color: #9be3b7;
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-family: ui-monospace, Consolas, monospace;
+    }
+
+    .hero h1 {
+      max-width: 760px;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p {
+      max-width: 690px;
+    }
+
+    .hero-proof {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 28px;
+      max-width: 760px;
+    }
+
+    .proof-card {
+      border: 1px solid rgba(33,181,89,0.18);
+      background: rgba(10,15,14,0.62);
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .proof-card strong {
+      display: block;
+      color: #d9ffe8;
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    .proof-card span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .statement {
+      max-width: 940px;
+      font-size: clamp(28px, 4vw, 54px);
+      line-height: 1.04;
+      letter-spacing: -0.05em;
+      color: #eafff1;
+      margin: 0 0 22px;
+    }
+
+    .statement .dim { color: rgba(234,255,241,0.44); }
+
+    .section-lead {
+      color: var(--muted);
+      max-width: 760px;
+      font-size: 17px;
+      line-height: 1.65;
+      margin: -6px 0 28px;
+    }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .big-card {
+      min-height: 330px;
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .big-card:before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background: radial-gradient(circle at 75% 20%, rgba(33,181,89,.18), transparent 34%), radial-gradient(circle at 20% 80%, rgba(33,181,89,.10), transparent 28%);
+      pointer-events: none;
+    }
+
+    .big-card > * { position: relative; }
+
+    .big-card h3 {
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+      margin: 18px 0 12px;
+    }
+
+    .big-card p { font-size: 17px; max-width: 700px; }
+
+    .compact-stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .feature-line {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 24px;
+      align-items: baseline;
+      border-top: 1px solid rgba(33,181,89,0.15);
+      padding: 22px 0;
+    }
+
+    .feature-line h3 {
+      margin: 0;
+      color: #eafff1;
+      font-size: 18px;
+    }
+
+    .feature-line p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .workflow-step {
+      border: 1px solid rgba(33,181,89,0.2);
+      background: rgba(10,15,14,0.74);
+      border-radius: 16px;
+      padding: 18px;
+      min-height: 135px;
+    }
+
+    .workflow-step b {
+      display: block;
+      color: #eafff1;
+      margin-bottom: 9px;
+    }
+
+    .workflow-step span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .machine-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .machine-strip span {
+      border: 1px solid rgba(33,181,89,0.2);
+      background: rgba(10,15,14,0.72);
+      border-radius: 14px;
+      padding: 14px 18px;
+      color: #d9ffe8;
+      font-weight: 600;
+    }
+
+    .updates-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .update-row {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 24px;
+      border-top: 1px solid rgba(33,181,89,0.15);
+      padding: 22px 0;
+    }
+
+    .update-row .meta {
+      color: #9be3b7;
+      font-family: ui-monospace, Consolas, monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .update-row h3 { margin: 0 0 8px; }
+    .update-row p { margin: 0; color: var(--muted); line-height: 1.6; }
+
+    .about-clean {
+      max-width: 860px;
+    }
+
+    .about-clean p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .contact-box {
+      text-align: center;
+      padding: 44px;
+      background: rgba(10,15,14,0.9);
+      border: 1px solid rgba(33,181,89,0.25);
+      box-shadow: 0 0 25px rgba(33,181,89,0.08);
+    }
+
+    #contactLink {
+      letter-spacing: 0.3px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: 900px) {
+      .focus-grid,
+      .hero-proof,
+      .workflow,
+      .feature-line,
+      .update-row {
+        grid-template-columns: 1fr;
+      }
+
+      .big-card { min-height: 260px; }
+      .feature-line { gap: 8px; }
+    }
   </style>
-  
-  
 </head>
 
-
 <body>
-  
-<!-- NAVIGATION -->
+
 <div class="nav">
   <div class="inner">
     <div class="brand">
-      <a href="#top">
-        <img src="assets/dtmlogo.png" alt="DTM Cube Logo">
-      </a>
+      <a href="#top"><img src="assets/dtmlogo.png" alt="DTM Studio Logo"></a>
     </div>
     <div class="menu">
-	  <a href="#updates">What's New</a>
-      <a href="#features">Features</a>
+      <a href="#why">Why DTM</a>
+      <a href="#technology">Technology</a>
+      <a href="#workflow">Workflow</a>
       <a href="#gallery">Gallery</a>
-      <a href="#about">About</a>
       <a href="#contact" class="btn btn-outline">Request Demo</a>
     </div>
   </div>
 </div>
 
-<!-- BACKGROUND CRAWL -->
 <div class="bg-crawl" aria-hidden="true">
   <div class="crawl-track">
 <pre>n1000                  ;subroutine
 ;----- PART INFO DATA --------------------------
 ;DIAMETER: 54
-;RADIUS: 40,7
+;RADIUS: 40.7
 ;SPINDLE DIRECTION: M3
-;PROGRAMM WITH BEVEL: 0.2
+;PROGRAM WITH BEVEL: 0.2
 ;MOD file 1: G:\DT4_newtaly_1000z.mod|Left|100|Plainor
-;CONIC CONSTANT: 0 
-;ASPHERIC COEFFICIENT #2:   5.807903e-006 
-;ASPHERIC COEFFICIENT #4:   0 
-;ASPHERIC COEFFICIENT #6:   0 
-;ASPHERIC COEFFICIENT #8:   1.702735e-013 
-;ASPHERIC COEFFICIENT #10: -3.421595e-016 
-;ASPHERIC COEFFICIENT #12: 0 
-;ASPHERIC COEFFICIENT #14: 0 
-;ASPHERIC COEFFICIENT #16: 0 
+;CONIC CONSTANT: 0
+;ASPHERIC COEFFICIENT #2:   5.807903e-006
+;ASPHERIC COEFFICIENT #8:   1.702735e-013
+;ASPHERIC COEFFICIENT #10: -3.421595e-016
 ;-----------------------------------------------
-
 G40 X30 Z5 F800
 Z-12.1 F200
 G41 X27.80000 Z-11.085093 F100
 M7.1
 F15
-X26.800000 Z-10.085093 
+X26.800000 Z-10.085093
 F(p45)
-X26.790000 Z-10.076242 
-X26.780000 Z-10.067396 
-X26.770000 Z-10.058556 
-X26.760000 Z-10.049723 
-X26.750000 Z-10.040896 
-X26.740000 Z-10.032075 
-X26.730000 Z-10.023261 
-X26.720000 Z-10.014452 
-X26.710000 Z-10.005650 
-X26.700000 Z-9.996854 
-X26.690000 Z-9.988064 
-X26.680000 Z-9.979280 
-X26.670000 Z-9.970502 
-</pre>
+X26.790000 Z-10.076242
+X26.780000 Z-10.067396
+X26.770000 Z-10.058556
+X26.760000 Z-10.049723
+X26.750000 Z-10.040896
+X26.740000 Z-10.032075
+X26.730000 Z-10.023261
+X26.720000 Z-10.014452
+X26.710000 Z-10.005650
+X26.700000 Z-9.996854</pre>
   </div>
 </div>
-
-<!-- HERO -->
 
 <section id="top" class="hero">
   <div class="container wrap">
     <div>
-      <span class="badge">Diamond Turning Manager</span>
-      <h1>DTM Studio — Precision made simple</h1>
-      <p>
-        Purpose-built SPDT software for diamond turning workflows.<br>
-        Generate machine-ready programs, apply measured corrections (MOD and interferometer XYZ),
-        and keep every job reproducible — without manual edits.
-      </p>
+      <div class="hero-kicker">
+        <span>SPDT Platform</span>
+        <span>Industrial Software</span>
+        <span>Precision Optics</span>
+      </div>
+	  
+	<div class="hero-brand">
+    <span>DTM Studio</span>
+    <small>Precision made simple.</small>
+	</div>
+
+	<h1>From optical surface to machine-ready program.</h1>
+	<p>
+	One platform for generating, correcting and managing precision diamond turning projects.
+	</p>
 
       <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <a class="btn" href="#features">Explore Features</a>
-        <a class="btn btn-outline" href="#gallery">See Gallery</a>
+        <a class="btn" href="#why">Explore DTM Studio</a>
+        <a class="btn btn-outline" href="#gallery">View Interface</a>
+      </div>
+
+      <div class="hero-proof">
+	  
+		<div class="proof-card">
+			<strong>Measured Corrections</strong>
+			<span>Based on profilometer and interferometer data.</span>
+		</div>
+
+		<div class="proof-card">
+		<strong>Production Output</strong>
+		<span>Controller-ready NC / PGM programs.</span>
+		</div>
+
+		<div class="proof-card">
+		<strong>Corporate Ready</strong>
+		<span>Deploy without installation or registration.</span>
+		</div>
       </div>
     </div>
 
     <div style="display:flex;justify-content:center;align-items:center">
-      <img src="assets/dtmlogo.png" alt="DTM Logo" style="max-width:80%;height:auto;border-radius:16px">
+      <img src="assets/dtmlogo.png" alt="DTM Studio Logo" style="max-width:82%;height:auto;border-radius:18px">
     </div>
   </div>
 </section>
 
+
+<section id="why" class="section">
+  <div class="container">
+
+    <p class="statement">
+      Not another G-code helper.
+      <span class="dim">A complete SPDT workflow platform.</span>
+    </p>
+
+    <p class="section-lead">
+      Designed to accelerate SPDT production by reducing manual work,
+      minimizing human error, and making every machining process repeatable.
+    </p>
+
+    <div class="focus-grid">
+
+      <div class="card big-card reveal">
+        <span class="pill">Why DTM Studio</span>
+
+        <h3>Faster production. Fewer mistakes. Better repeatability.</h3>
+
+        <p>
+          DTM Studio automates repetitive engineering tasks, reduces manual program editing,
+          validates machining data before it reaches the machine, and keeps every project
+          organized for reliable long-term production.
+        </p>
+      </div>
+
+      <div class="compact-stack">
+
+        <div class="card reveal">
+          <h3>Less Manual Work</h3>
+          <p>
+            Replace repetitive calculations, manual editing and disconnected files
+            with a unified engineering workflow.
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <h3>Reduce Human Error</h3>
+          <p>
+            Built-in validation and controlled program generation help prevent costly
+            programming mistakes before machining begins.
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <h3>Improve Repeatability</h3>
+          <p>
+            Geometry, corrections, machining parameters and generated programs remain
+            together, making existing jobs easy to reproduce and update.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section id="technology" class="section">
+  <div class="container">
+
+    <h2 class="section-title">Core Technologies</h2>
+
+    <p class="section-lead">
+      DTM Studio combines the technologies needed to generate machine-ready programs,
+      automate correction workflows, reduce manual work, and accelerate SPDT production.
+    </p>
+
+    <div class="feature-line reveal">
+      <h3>Machine Program Generation</h3>
+      <p>
+        Generate complete production-ready NC and PGM programs automatically, eliminating
+        manual editing before machining.
+      </p>
+    </div>
+
+    <div class="feature-line reveal">
+      <h3>Loop Setup</h3>
+      <p>
+        Create complete machining loops in a single click, including spindle direction,
+        roughing, finishing, bevels, coolant, pauses and machine-specific options.
+      </p>
+    </div>
+
+    <div class="feature-line reveal">
+      <h3>Measured Corrections</h3>
+      <p>
+        Create production-ready corrections instantly from profilometer measurements
+        or interferometer XYZ data using a unified correction workflow.
+      </p>
+    </div>
+
+    <div class="feature-line reveal">
+      <h3>FeedX</h3>
+      <p>
+        Automatically control feedrate across different diameters using reusable
+        templates with instant regeneration of the machining program.
+      </p>
+    </div>
+
+    <div class="feature-line reveal">
+      <h3>Multi-Trace</h3>
+      <p>
+        Combine multiple optical surfaces into one continuous machining profile,
+        enabling complex and hybrid optical designs.
+      </p>
+    </div>
+
+    <div class="feature-line reveal">
+      <h3>Real-Time Visualization</h3>
+      <p>
+        Preview optical profiles, 3D surfaces and the actual cutting path before
+        machining begins.
+      </p>
+    </div>
+
+    <div class="feature-line reveal">
+      <h3>Industrial Workspace</h3>
+      <p>
+        A modern multi-project engineering environment designed for fast daily
+        production and intuitive operation.
+      </p>
+    </div>
+
+    <div class="feature-line reveal">
+      <h3>Corporate Deployment</h3>
+      <p>
+        Deploy directly from shared network storage without installation,
+        administrator rights or legacy component registration.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section id="workflow" class="section">
+  <div class="container">
+
+    <h2 class="section-title">Production Workflow</h2>
+
+    <p class="section-lead">
+      DTM Studio follows the natural SPDT manufacturing process—from optical design
+      to the final corrected machining program—keeping every step connected inside
+      a single engineering project.
+    </p>
+
+    <div class="workflow">
+
+      <div class="workflow-step reveal">
+        <b>Design the Surface</b>
+        <span>Create spheres, aspheres, hybrid optics and machining parameters.</span>
+      </div>
+
+      <div class="workflow-step reveal">
+        <b>Generate the Program</b>
+        <span>Automatically generate complete controller-ready NC or PGM programs.</span>
+      </div>
+
+      <div class="workflow-step reveal">
+        <b>Measure the Result</b>
+        <span>Import profilometer measurements or interferometer XYZ data.</span>
+      </div>
+
+      <div class="workflow-step reveal">
+        <b>Apply Corrections</b>
+        <span>Generate updated machining programs directly from measurement data.</span>
+      </div>
+
+      <div class="workflow-step reveal">
+        <b>Machine with Confidence</b>
+        <span>Validate the output and reproduce every project whenever needed.</span>
+      </div>
+
+    </div>
+
+    <div class="machine-strip">
+      <span>Precitech</span>
+      <span>Nanotech</span>
+      <span>Laser Micro-LAM</span>
+      <span>Profilometer</span>
+      <span>Interferometer</span>
+    </div>
+
+  </div>
+</section>
+
+<section id="gallery" class="section">
+  <div class="container">
+    <h2 class="section-title">Interface</h2>
+    <p class="section-lead">
+      Screenshots from the real DTM Studio environment: workspace, correction tools, 2D visualization, and 3D surface preview.
+    </p>
+
+    <div class="gallery-grid">
+      <a href="assets/DTM-Studio-Interface-GUI.png" data-lightbox="dtm-gallery" data-title="DTM Studio Workspace" class="gallery-item gallery-large">
+        <img src="assets/DTM-Studio-Interface-GUI.png" alt="DTM Studio Workspace">
+      </a>
+      <a href="assets/DTM-Studio-Interferometer-Correction.png" data-lightbox="dtm-gallery" data-title="Interferometer XYZ Correction" class="gallery-item">
+        <img src="assets/DTM-Studio-Interferometer-Correction.png" alt="Interferometer XYZ Correction">
+      </a>
+      <a href="assets/DTM-Studio-2D-Visualization.png" data-lightbox="dtm-gallery" data-title="2D Lens Visualization" class="gallery-item">
+        <img src="assets/DTM-Studio-2D-Visualization.png" alt="2D Lens Visualization">
+      </a>
+      <a href="assets/DTM-Studio-3D-Visualization.png" data-lightbox="dtm-gallery" data-title="3D Surface Visualization" class="gallery-item">
+        <img src="assets/DTM-Studio-3D-Visualization.png" alt="3D Surface Visualization">
+      </a>
+    </div>
+  </div>
+</section>
 
 <section id="updates" class="section">
   <div class="container">
-    <h2 class="section-title">What's New</h2>
-
-    <div class="updates-head">
-      <p class="small" style="margin:0">
-        Short release notes and progress updates. Last update: <span id="dtmLastUpdate">—</span>
-      </p>
-      <a class="btn btn-outline" href="https://www.linkedin.com/company/dtmstudio-official/" target="_blank" rel="noopener">Follow on LinkedIn</a>
-    </div>
-
-    <div id="updatesGrid" class="grid"></div>
-
-    <hr>
-    <p class="small" style="margin:0">
-      Want to follow progress? Updates are also posted on LinkedIn.
+    <h2 class="section-title">Latest Development</h2>
+    <p class="section-lead">
+      Only major product-level milestones are shown here. Internal fixes and minor workflow polish stay inside the application release notes.
     </p>
-  </div>
-</section>
 
-<script>
-(function(){
-const updates = [
-  {
-    date: "2026-04-06",
-    title: "2D Lens Visualizer",
-    text: "Integrated real-time geometry preview directly in the editor with support for multiple independent windows.",
-    tag: "Update"
-  },
-  {
-    date: "2026-04-06",
-    title: "Hybrid Lens Support",
-    text: "CX–CC hybrid lenses via negative radius convention for more flexible geometry control.",
-    tag: "Update"
-  },
-  {
-    date: "2026-04-06",
-    title: "Workspace & Interaction",
-    text: "Adaptive layout resizing, fast workspace switching, and improved MDI window snapping and interaction.",
-    tag: "Update"
-  }
-];
-
-  const grid = document.getElementById("updatesGrid");
-  const last = document.getElementById("dtmLastUpdate");
-  if (!grid) return;
-
-  if (updates.length) last.textContent = updates[0].date;
-
-  grid.innerHTML = updates.map(u => `
-    <div class="card update-card reveal">
-      <div class="update-top">
-        <span class="update-tag">${u.tag}</span>
-        <span class="update-date">${u.date}</span>
-      </div>
-      <h3 style="margin:10px 0 8px">${u.title}</h3>
-      <p style="margin:0;color:var(--muted)">${u.text}</p>
-    </div>
-  `).join("");
-})();
-</script>
-
-
-<!-- HIGHLIGHTS -->
-<section id="highlights" class="section">
-  <div class="container">
-    <h2 class="section-title">Highlights</h2>
-
-    <div class="grid">
-      <div class="card reveal">
-        <h3>Less Manual Editing</h3>
-        <p>Machine-ready output and predictable toolpaths — no copy/paste fixes before cutting.</p>
+    <div class="updates-list">
+      <div class="update-row reveal">
+        <div class="meta">2026 · Deployment</div>
+        <div>
+          <h3>Corporate-ready execution</h3>
+          <p>DTM Studio now runs without legacy OCX dependencies, administrator rights, or system component registration — a major step for locked-down production environments.</p>
+        </div>
       </div>
 
-      <div class="card reveal">
-        <h3>Faster Iteration Cycles</h3>
-        <p>Measure → correct → regenerate in minutes. Reduced setup time for routine jobs.</p>
+      <div class="update-row reveal">
+        <div class="meta">2026 · Workspace</div>
+        <div>
+          <h3>Full engineering workspace</h3>
+          <p>The application evolved from separate tools into a unified multi-project workspace with integrated correction, visualization, FeedX, Loop Setup, file management, logging, and project state control.</p>
+        </div>
       </div>
 
-      <div class="card reveal">
-        <h3>Reproducible Jobs</h3>
-        <p>Projects stay consistent: parameters, corrections, and output are kept together.</p>
+      <div class="update-row reveal">
+        <div class="meta">2026 · Correction</div>
+        <div>
+          <h3>Measurement-based correction pipeline</h3>
+          <p>MOD stacking and interferometer XYZ correction are now part of the same production workflow, with undo, smoothing, radial profile generation, and nanometer-scale metrics.</p>
+        </div>
       </div>
 
-      <div class="card reveal">
-        <h3>Safe by Design</h3>
-        <p>Validation and operator-focused checks reduce the chance of expensive mistakes.</p>
-      </div>
-
-      <div class="card reveal">
-        <h3>Correction Stacking</h3>
-        <p>Stack multiple corrections with undo. Scale, shift, compare, and avoid duplicates.</p>
-      </div>
-
-      <div class="card reveal">
-        <h3>Advanced Workflows</h3>
-        <p>Multi-segment surfaces and hybrid cutting support are built into the workflow.</p>
+      <div class="update-row reveal">
+        <div class="meta">2026 · Toolpath</div>
+        <div>
+          <h3>FeedX and programmable loop control</h3>
+          <p>Feedrate behavior and machining loop structure can be configured directly from DTM Studio, reducing repetitive controller-code editing and improving consistency between jobs.</p>
+        </div>
       </div>
     </div>
 
     <hr>
-    <p class="small">Developed in Riga • Focused on real SPDT operator needs</p>
-  </div>
-</section>
-
-
-
-<!-- FEATURES -->
-<section id="features" class="section">
-  <div class="container">
-    <h2 class="section-title">Core Features</h2>
-
-    <div class="grid">
-      <div class="card reveal">
-        <h3>Machine-ready Output</h3>
-        <p>Generate controller-compatible programs (.PGM / .NC) with consistent structure.</p>
-      </div>
-
-      <div class="card reveal">
-        <h3>Geometry Presets</h3>
-        <p>Fast setup for Sphere / Asphere / Convex / Concave without manual formula typing.</p>
-      </div>
-
-      <div class="card reveal">
-        <h3>Tool Radius Mode</h3>
-        <p>Programmable tool radius applied inside trajectory calculations — no double compensation.</p>
-      </div>
-
-      <div class="card reveal">
-        <h3>MOD Corrections</h3>
-        <p>Load MOD files, select side (Left / Right / Average), scale %, and apply accurately.</p>
-      </div>
-
-      <div class="card reveal">
-        <h3>Correction Stack + Undo</h3>
-        <p>Stack multiple corrections safely, prevent duplicates, and roll back any step.</p>
-      </div>
-
-      <div class="card reveal">
-        <h3>Interferometer XYZ Correction</h3>
-        <p>Import XYZ maps and generate controlled correction profiles with PV/RMS traceability.</p>
-      </div>
-
-      <div class="card reveal">
-        <h3>Multi-segment Workflow</h3>
-        <p>Combine spheres, aspheres, bevels, and flats into one continuous program.</p>
-      </div>
-
-      <div class="card reveal">
-        <h3>Project Packaging</h3>
-        <p>One-click save: project parameters, corrections, and generated output stored together.</p>
-      </div>
-
-      <div class="card reveal">
-        <h3>Validation & Logs</h3>
-        <p>Built-in checks and logging to reduce operator mistakes before the machine.</p>
-      </div>
-
-      <div class="card reveal">
-        <h3>Optimus LDT Support</h3>
-        <p>Hybrid cutting workflow support for laser-assisted diamond turning setups.</p>
-      </div>
-	</div>
-  </div>
-</section>
-
-
-<!-- XYZ INTERFEROMETER CORRECTION -->
-<section id="xyz" class="section">
-  <div class="container">
-    <h2 class="section-title">Interferometer XYZ Correction</h2>
-
-    <div class="grid">
-      <div class="card reveal">
-        <h3>Direct XYZ Import</h3>
-        <p>
-          Import interferometer surface data directly as XYZ point maps.
-          No external preprocessing or format conversion required.
-        </p>
-      </div>
-
-      <div class="card reveal">
-        <h3>Best-Fit Surface Removal</h3>
-        <p>
-          Automatic removal of piston, tilt, and power inside the defined clear aperture
-          before correction is generated.
-        </p>
-      </div>
-
-      <div class="card reveal">
-        <h3>Clear Aperture Control</h3>
-        <p>
-          Corrections are calculated strictly inside the optical clear aperture,
-          avoiding edge artifacts and unstable tool motion.
-        </p>
-      </div>
-
-      <div class="card reveal">
-        <h3>Nanometer-Scale Metrics</h3>
-        <p>
-          PV and RMS are calculated in nanometers, keeping measurement and cutting
-          results directly comparable.
-        </p>
-      </div>
-
-      <div class="card reveal">
-        <h3>SPDT-Safe Correction Pipeline</h3>
-        <p>
-          XYZ data is converted into a controlled radial correction profile —
-          not a raster heightmap — fully compatible with diamond turning.
-        </p>
-      </div>
-
-      <div class="card reveal">
-        <h3>Integrated Workflow</h3>
-        <p>
-          Interferometer corrections integrate seamlessly with MOD-based correction stacking,
-          undo, and project management.
-        </p>
-      </div>
-    </div>
-
-    <hr>
-    <p class="small">
-      Designed specifically for single-point diamond turning.
-      No generic CAM assumptions. No raster artifacts.
+    <p class="small" style="margin:0">
+      Follow progress on <a href="https://www.linkedin.com/company/dtmstudio-official/" target="_blank" rel="noopener">LinkedIn</a>.
     </p>
   </div>
 </section>
 
-
-
-<!-- GALLERY -->
-<section id="gallery" class="section">
-  <div class="container">
-    <h2 class="section-title">Gallery</h2>
-
-    <div class="gallery-grid">
-
-      <a href="assets/DTM-Studio-Interface-GUI.png"
-         data-lightbox="dtm-gallery"
-         data-title="DTM Studio Interface"
-         class="gallery-item gallery-large">
-        <img src="assets/DTM-Studio-Interface-GUI.png" alt="DTM Studio Interface">
-      </a>
-
-      <a href="assets/DTM-Studio-Interferometer-Correction.png"
-         data-lightbox="dtm-gallery"
-         data-title="Interferometer Surface Correction"
-         class="gallery-item">
-        <img src="assets/DTM-Studio-Interferometer-Correction.png" alt="Interferometer Correction">
-      </a>
-
-      <a href="assets/DTM-Studio-2D-Visualization.png"
-         data-lightbox="dtm-gallery"
-         data-title="2D Lens Visualization"
-         class="gallery-item">
-        <img src="assets/DTM-Studio-2D-Visualization.png" alt="2D Visualization">
-      </a>
-
-      <a href="assets/DTM-Studio-3D-Visualization.png"
-         data-lightbox="dtm-gallery"
-         data-title="3D Surface Visualization"
-         class="gallery-item">
-        <img src="assets/DTM-Studio-3D-Visualization.png" alt="3D Visualization">
-      </a>
-
-    </div>
-
-    <p class="gallery-note">
-      Screenshots from the real DTM Studio environment.
-    </p>
-  </div>
-</section>
-
-
-<!-- ABOUT -->
 <section id="about" class="section">
   <div class="container">
-    <h2 class="section-title">About</h2>
-
-    <div class="card reveal">
-      <h3>✦ DTM Studio — Diamond Turning Manager</h3>
-
+    <h2 class="section-title">About DTM Studio</h2>
+    <div class="card reveal about-clean">
       <p>
-        <strong>DTM Studio</strong> is independent SPDT software developed in Riga by a machine operator.
-        It focuses on daily production workflow: faster preparation, fewer manual edits, and safer output before cutting.
+        <strong>DTM Studio</strong> is professional software for Single-Point Diamond Turning, designed to accelerate production, reduce manual work, and improve process repeatability.
+		Built around real manufacturing requirements, it helps engineers generate machine-ready programs, apply measured corrections, and manage complete machining projects from a single engineering platform.
       </p>
-
       <p>
-        The goal is simple: keep the operator in control while making the workflow faster, cleaner, and reproducible.
+        The goal is simple: reduce manual operations, improve repeatability, and give SPDT teams a cleaner way to move
+        from surface definition to corrected machine-ready output.
       </p>
-
-      <h4>Core focus</h4>
-      <ul>
-        <li><strong>Machine-ready output</strong> with predictable structure.</li>
-        <li><strong>Measured corrections</strong> (MOD and interferometer XYZ) with safe stacking and undo.</li>
-        <li><strong>Operator safety</strong> via validation, checks, and traceable workflow.</li>
-        <li><strong>Real production usability</strong> — built around SPDT shop-floor routines.</li>
-      </ul>
-
-      <p class="small">Status: Active development • Region: EU</p>
+      <p class="small">Status: Active Development · Region: EU · Field: Precision Optics Manufacturing</p>
     </div>
   </div>
 </section>
 
-
-<!-- CONTACT -->
 <section id="contact" class="section">
   <div class="container">
     <h2 class="section-title">Request Demo</h2>
-    <div class="form card reveal" style="text-align:center; padding:36px; background:rgba(10,15,14,0.9); border:1px solid rgba(33,181,89,0.25); box-shadow:0 0 25px rgba(33,181,89,0.08);">
-      
-      <p style="font-size:16px; color:#bdecd0; margin-bottom:20px;">
-        Want to explore <strong>DTM Studio</strong> or discuss features with the developer?<br>
-        Reach out directly — no forms, no bots.
+    <div class="form card reveal contact-box">
+      <p style="font-size:17px; color:#bdecd0; margin-bottom:22px;">
+        Want to evaluate DTM Studio for SPDT production or discuss machine-specific workflows?
       </p>
 
-<p>
-<a class="btn" id="contactLink">info@dtm-studio.org</a>
+      <p><a class="btn" id="contactLink">info@dtm-studio.org</a></p>
 
-<style>
-#contactLink {
-  letter-spacing: 0.3px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
+      <p style="font-size:13px; color:rgba(155,227,183,0.5); margin-top:24px;">
+        Direct contact · No forms · No trackers
+      </p>
+    </div>
+  </div>
+</section>
 
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="powered-by">
+      <a href="https://www.namecheap.com" target="_blank" rel="noopener noreferrer"><img src="assets/namecheap.png" alt="Namecheap"></a>
+      <a href="https://www.linkedin.com/company/dtmstudio-official/" target="_blank" rel="noopener noreferrer" class="linkedin"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn"></a>
+      <a href="https://github.com/Ljaska" target="_blank" rel="noopener noreferrer" class="github"><img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-white-icon.png" alt="GitHub Logo"></a>
+      <a href="/privacy/" class="footer-legal">Privacy Policy</a>
+      <a href="/cookies/" class="footer-legal">Cookie Policy</a>
+    </div>
 
+    <div class="footer-info">
+      <p class="copyright">© 2026 DTM Studio. All rights reserved.</p>
+      <p class="disclaimer">
+		References to Precitech, Nanotech and Laser Micro-LAM are provided solely for compatibility and identification purposes. 
+		All trademarks are the property of their respective owners. DTM Studio is an independent software product and is not affiliated with, sponsored by, or endorsed by any machine manufacturer.
+      </p>
+      <p class="hint">Press <span class="kbd">Ctrl</span> + <span class="kbd">~</span> to open terminal window</p>
+    </div>
+  </div>
 
-</style>
+  <style>
+    .powered-by { display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:12px; flex-wrap:wrap; }
+    .powered-by img { height:26px; transition:all .25s ease-in-out; vertical-align:middle; }
+    .powered-by a:first-child img:hover { filter:drop-shadow(0 0 10px rgba(255,102,0,.8)); transform:scale(1.05); }
+    .linkedin, .github { display:inline-flex; align-items:center; gap:6px; color:#b8c6b8; text-decoration:none; transition:color .25s ease-in-out; }
+    .linkedin img { height:22px; filter:none; transition:all .25s ease-in-out; }
+    .linkedin:hover { color:#0a66c2; }
+    .linkedin:hover img { filter:drop-shadow(0 0 8px rgba(10,102,194,.9)); transform:scale(1.05); }
+    .footer-info { display:flex; flex-direction:column; align-items:center; gap:4px; margin-top:2px; }
+    .copyright { margin:0; font-size:14px; color:#9fad9f; }
+    .hint { font-size:13px; color:#667266; }
+    .kbd { background:#243229; padding:2px 6px; border-radius:4px; font-family:monospace; font-size:13px; }
+    .site-footer .github img { height:28px; width:auto; transition:all .25s ease-in-out; filter:brightness(1) saturate(1); }
+    .site-footer .github:hover { color:#fff; }
+    .site-footer .github:hover img { filter:brightness(2.5) drop-shadow(0 0 6px rgba(255,255,255,.8)) drop-shadow(0 0 12px rgba(255,255,255,.6)) drop-shadow(0 0 18px rgba(255,255,255,.4)); transform:scale(1.16); }
+  </style>
+</footer>
 
-</p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.lightbox) {
+    lightbox.option({
+      resizeDuration: 200,
+      fadeDuration: 200,
+      imageFadeDuration: 200,
+      wrapAround: true,
+      alwaysShowNavOnTouchDevices: true,
+      disableScrolling: true
+    });
+  }
+});
+</script>
+
+<script>
+(function(){
+  const nav = document.querySelector('.nav');
+  if (!nav) return;
+  function onScroll(){
+    if (window.scrollY > 10) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  }
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+})();
+</script>
+
+<script>
+(function(){
+  function reveal(){
+    document.querySelectorAll('.reveal').forEach(card => {
+      const rect = card.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 80) card.classList.add('visible');
+    });
+  }
+  window.addEventListener('scroll', reveal, { passive: true });
+  window.addEventListener('load', reveal);
+  window.addEventListener('resize', reveal);
+  reveal();
+})();
+</script>
+
 <script>
 (function(){
   const link = document.getElementById("contactLink");
+  if (!link) return;
+
   link.addEventListener("click", e => {
     e.preventDefault();
-
     const subject = encodeURIComponent("DTM Studio Demo Request");
-    const body = encodeURIComponent("Hello! I’d like to request a demo of DTM Studio.");
+    const body = encodeURIComponent("Hello! I would like to request a demo of DTM Studio.");
     const gmail = `https://mail.google.com/mail/?view=cm&fs=1&to=info@dtm-studio.org&su=${subject}&body=${body}`;
-
-    // Показываем уведомление
-    showDTMToast("📤 Opening mail client...");
-
-    // открывает Gmail в новой вкладке
+    showDTMToast("Opening mail client...");
     window.open(gmail, "_blank", "noopener");
-    // параллельно пробует mailto
     window.location.href = `mailto:info@dtm-studio.org?subject=${subject}&body=${body}`;
   });
 
@@ -499,8 +786,8 @@ const updates = [
       fontSize: "14px",
       zIndex: 9999,
       opacity: "0",
-      transition: "opacity 0.5s ease, transform 0.5s ease",
-      boxShadow: "0 0 12px rgba(33,181,89,0.3)"
+      transition: "opacity .5s ease, transform .5s ease",
+      boxShadow: "0 0 12px rgba(33,181,89,.3)"
     });
     document.body.appendChild(toast);
     requestAnimationFrame(() => {
@@ -516,237 +803,16 @@ const updates = [
 })();
 </script>
 
-
-
-      <p style="font-size:13px; color:rgba(155,227,183,0.5); margin-top:24px;">
-        No trackers • No forms • Just a human response.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="footer-inner">
-
-	<div class="powered-by">
-	  <a href="https://www.namecheap.com" target="_blank" rel="noopener noreferrer">
-		<img src="assets/namecheap.png" alt="Namecheap" />
-	  </a>
-
-	  <a href="https://www.linkedin.com/company/dtmstudio-official/" target="_blank" rel="noopener noreferrer" class="linkedin">
-		<img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" />
-	  </a>
-
-	  <a href="https://github.com/Ljaska" target="_blank" rel="noopener noreferrer" class="github">
-		<img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-white-icon.png" alt="GitHub Logo" />
-	  </a>
-
-	  <a href="/privacy/" class="footer-legal">Privacy Policy</a>
-	  <a href="/cookies/" class="footer-legal">Cookie Policy</a>
-	</div>
-
-
-    <!-- Footer info -->
-    <div class="footer-info">
-      <p class="copyright">© 2026 DTM Studio. All rights reserved.</p>
-	  <p class="disclaimer">
-	  References to Precitech and Nanotech are for compatibility and identification purposes only.
-	  All trademarks are the property of their respective owners.
-	  DTM Studio is not affiliated with, sponsored by, or endorsed by any machine manufacturer.
-	</p>
-
-      <p class="hint">Press <span class="kbd">Ctrl</span> + <span class="kbd">~</span> to open terminal window</p>
-    </div>
-
-  </div>
-
-  <style>
-    .powered-by {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 12px; /* чуть больше, чтобы разделить визуально */
-    }
-
-    .powered-by img {
-      height: 26px;
-      transition: all 0.25s ease-in-out;
-      vertical-align: middle;
-    }
-
-    .powered-by .divider {
-      opacity: 0.4;
-      margin: 0 6px;
-      color: #4b5b4b;
-    }
-
-    /* Namecheap hover glow */
-    .powered-by a:first-child img:hover {
-      filter: drop-shadow(0 0 10px rgba(255, 102, 0, 0.8));
-      transform: scale(1.05);
-    }
-
-    /* LinkedIn link */
-    .linkedin {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: #b8c6b8;
-      text-decoration: none;
-      transition: color 0.25s ease-in-out;
-    }
-
-    .linkedin img {
-      height: 22px;
-      filter: none;
-      transition: all 0.25s ease-in-out;
-    }
-
-    /* LinkedIn hover glow */
-    .linkedin:hover {
-      color: #0a66c2;
-    }
-
-    .linkedin:hover img {
-      filter: drop-shadow(0 0 8px rgba(10, 102, 194, 0.9));
-      transform: scale(1.05);
-    }
-
-    /* Copyright and system hint */
-    .footer-info {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      margin-top: 2px;
-    }
-
-    .copyright {
-      margin: 0;
-      font-size: 14px;
-      color: #9fad9f;
-    }
-
-    .hint {
-      font-size: 13px;
-      color: #667266;
-    }
-
-    .kbd {
-      background: #243229;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-family: monospace;
-      font-size: 13px;
-    }
-	
-/* --- GitHub white glow (for white icon) --- */
-.site-footer .github {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: #b8c6b8;
-  text-decoration: none;
-  transition: color 0.25s ease-in-out;
-}
-
-.site-footer .github img {
-  height: 28px;
-  transition: all 0.25s ease-in-out;
-  filter: brightness(1);
-}
-
-/* эффект при наведении */
-.site-footer .github:hover {
-  color: #ffffff;
-}
-
-.site-footer .github img {
-  height: 28px; /* ← вернуть нормальный размер */
-  width: auto;
-  transition: all 0.25s ease-in-out;
-  filter: brightness(1) saturate(1);
-}
-
-.site-footer .github:hover img {
-  filter: brightness(2.5)
-          drop-shadow(0 0 6px rgba(255,255,255,0.8))
-          drop-shadow(0 0 12px rgba(255,255,255,0.6))
-          drop-shadow(0 0 18px rgba(255,255,255,0.4));
-  transform: scale(1.16);
-}
-
-
-  </style>
-</footer>
-
-
-<!-- LIGHTBOX (Lightbox2 needs jQuery) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  if (window.lightbox) {
-    lightbox.option({
-      resizeDuration: 200,
-      fadeDuration: 200,
-      imageFadeDuration: 200,
-      wrapAround: true,
-      alwaysShowNavOnTouchDevices: true,
-      disableScrolling: true
-    });
-  }
-});
-</script>
-
-
-
-<script>
-(function(){
-  const nav = document.querySelector('.nav');
-  if (!nav) return;
-  function onScroll(){
-    if (window.scrollY > 10) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
-  }
-  window.addEventListener('scroll', onScroll);
-  onScroll();
-})();
-</script>
-
-<script>
-(function(){
-  function reveal(){
-    document.querySelectorAll('.card.reveal').forEach(card => {
-      const rect = card.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 80) card.classList.add('visible');
-    });
-  }
-  window.addEventListener('scroll', reveal, { passive: true });
-  window.addEventListener('load', reveal);
-  window.addEventListener('resize', reveal);
-  reveal();
-})();
-</script>
-
-
-<!-- DTM Ambient Hum -->
 <audio id="dtmHum" src="assets/hhum.mp3" loop preload="auto"></audio>
 
 <script>
 (function(){
   const hum = document.getElementById('dtmHum');
   if (!hum) return;
-
   hum.volume = 0.15;
 
-  // Создаём кнопку управления
   const btn = document.createElement('div');
-  btn.textContent = "🎧 Enable Ambience";
+  btn.textContent = "Enable Ambience";
   Object.assign(btn.style, {
     position: "fixed",
     bottom: "18px",
@@ -760,57 +826,37 @@ document.addEventListener("DOMContentLoaded", function () {
     cursor: "pointer",
     zIndex: 9999,
     backdropFilter: "blur(6px)",
-    transition: "all 0.3s ease"
+    transition: "all .3s ease"
   });
 
   btn.onmouseenter = () => btn.style.background = "rgba(33,181,89,0.25)";
   btn.onmouseleave = () => btn.style.background = "rgba(33,181,89,0.12)";
-
-  // Включение/выключение
   btn.onclick = () => {
     if (hum.paused) {
       hum.play().catch(()=>{});
-      btn.textContent = "🔇 Disable Ambience";
+      btn.textContent = "Disable Ambience";
       btn.style.background = "rgba(33,181,89,0.25)";
     } else {
       hum.pause();
-      hum.currentTime = 0; // возвращаем в начало
-      btn.textContent = "🎧 Enable Ambience";
+      hum.currentTime = 0;
+      btn.textContent = "Enable Ambience";
       btn.style.background = "rgba(33,181,89,0.12)";
     }
   };
-
-
   document.body.appendChild(btn);
 })();
 </script>
 
-<!-- DTM Terminal Interactive -->
 <div id="dtmTerminal">
   <pre id="dtmLog"></pre>
-  <div id="dtmInputWrap"><span id="dtmPrompt">&gt;</span><input id="dtmInput" autocomplete="off" /></div>
+  <div id="dtmInputWrap"><span id="dtmPrompt">&gt;</span><input id="dtmInput" autocomplete="off"></div>
 </div>
 
 <style>
-  /* терминал сам без прокрутки, только лог скроллится колесом */
-  #dtmTerminal {
-    overflow: hidden;
-    will-change: transform;
-    backface-visibility: hidden;
-  }
-
-  /* скрываем полосу у лога */
-  #dtmLog {
-    overflow: auto;
-    scrollbar-width: none;       /* Firefox */
-    -ms-overflow-style: none;    /* IE/Edge legacy */
-  }
-  #dtmLog::-webkit-scrollbar {
-    width: 0;
-    height: 0;                   /* Chrome/Safari */
-  }
+  #dtmTerminal { overflow:hidden; will-change:transform; backface-visibility:hidden; }
+  #dtmLog { overflow:auto; scrollbar-width:none; -ms-overflow-style:none; }
+  #dtmLog::-webkit-scrollbar { width:0; height:0; }
 </style>
-
 
 <script>
 (function(){
@@ -821,7 +867,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const prompt = document.getElementById("dtmPrompt");
   let visible = false;
 
-  // --- terminal style ---
   Object.assign(term.style, {
     position: "fixed",
     bottom: "0",
@@ -837,70 +882,37 @@ document.addEventListener("DOMContentLoaded", function () {
     boxShadow: "0 -2px 12px rgba(0,0,0,0.6)",
     zIndex: 9999,
     padding: "10px 16px",
-    transition: "transform 0.4s ease",
+    transition: "transform .4s ease",
     display: "flex",
-    flexDirection: "column",
-  });
-  
-  
-
-  Object.assign(log.style, {
-    flex: "1",
-    overflowY: "auto",
-    whiteSpace: "pre-wrap",
-    margin: "0",
+    flexDirection: "column"
   });
 
-  Object.assign(inputWrap.style, {
-    display: "flex",
-    alignItems: "center",
-    gap: "6px",
-    paddingTop: "6px",
-    borderTop: "none",
-  });
+  Object.assign(log.style, { flex:"1", overflowY:"auto", whiteSpace:"pre-wrap", margin:"0" });
+  Object.assign(inputWrap.style, { display:"flex", alignItems:"center", gap:"6px", paddingTop:"6px", borderTop:"none" });
+  Object.assign(input.style, { flex:"1", background:"transparent", border:"none", color:"#21b559", outline:"none", fontFamily:"ui-monospace, Consolas, monospace", fontSize:"14px", caretColor:"#21b559", padding:"0", margin:"0" });
+  Object.assign(prompt.style, { color:"#21b559", animation:"blink 1.2s steps(2, start) infinite" });
 
-  Object.assign(input.style, {
-    flex: "1",
-    background: "transparent",
-    border: "none",
-    color: "#21b559",
-    outline: "none",
-    fontFamily: "ui-monospace, Consolas, monospace",
-    fontSize: "14px",
-    caretColor: "#21b559",
-    padding: "0",
-    margin: "0",
-  });
-
-  // blinking prompt ">"
-  Object.assign(prompt.style, {
-    color: "#21b559",
-    animation: "blink 1.2s steps(2, start) infinite",
-  });
   const style = document.createElement("style");
-  style.textContent = `
-  @keyframes blink { to { visibility: hidden; } }
-  `;
+  style.textContent = "@keyframes blink { to { visibility: hidden; } }";
   document.head.appendChild(style);
 
-  // --- responses ---
   const responses = {
     help: "Available commands:\nstatus, license, clear, about, system diag, memory check, mod scan, core reboot, exit",
-    status: "All systems nominal.",
-    license: "DTM Studio v0.2.15 — Licensed to Internal Developer Node #001",
-    about: "Diamond Turning Manager — Core online.",
+    status: "DTM Core online. Workspace ready.",
+    license: "DTM Studio — Engineering Node #001",
+    about: "Industrial SPDT workflow platform.",
     clear: "__clear__",
-    exit: "__exit__",
+    exit: "__exit__"
   };
 
-  // --- typing effect ---
-  function printLine(line, delay = 40) {
+  function wait(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
+
+  function printLine(line, delay = 28) {
     return new Promise(resolve => {
       let i = 0;
       const interval = setInterval(() => {
-        if (i < line.length) {
-          log.textContent += line[i++];
-        } else {
+        if (i < line.length) log.textContent += line[i++];
+        else {
           clearInterval(interval);
           log.textContent += "\n";
           resolve();
@@ -910,39 +922,34 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // --- handle commands ---
   async function handleCommand(cmd) {
     switch (cmd) {
       case "system diag":
         await printLine("Running diagnostics...");
-        await new Promise(r => setTimeout(r, 500));
-        await printLine("CPU Load: 12%");
-        await printLine("Temperature: Stable");
-        await printLine("Status: — OK");
+        await wait(350);
+        await printLine("Workspace: OK");
+        await printLine("Correction stack: READY");
+        await printLine("Validation engine: ONLINE");
         break;
-
       case "memory check":
-        await printLine("Scanning memory...");
-        await new Promise(r => setTimeout(r, 500));
-        await printLine("RAM usage: 63 MB / 1024 MB");
-        await printLine("Cache integrity: Verified.");
+        await printLine("Scanning project memory...");
+        await wait(350);
+        await printLine("Project state: Verified");
+        await printLine("Correction chain: Consistent");
         break;
-
       case "mod scan":
-        await printLine("Scanning connected MOD profiles...");
-        await new Promise(r => setTimeout(r, 600));
+        await printLine("Scanning correction profiles...");
+        await wait(450);
         await printLine("Left.mod — OK");
         await printLine("Right.mod — OK");
-        await printLine("Glidex.mod — Ready");
+        await printLine("XYZ radial profile — READY");
         break;
-
       case "core reboot":
         log.textContent = "";
         await printLine("> Rebooting DTM Core...");
-        await new Promise(r => setTimeout(r, 1000));
+        await wait(750);
         runBoot();
         break;
-
       default:
         if (responses[cmd]) {
           if (responses[cmd] === "__clear__") log.textContent = "";
@@ -955,49 +962,39 @@ document.addEventListener("DOMContentLoaded", function () {
     log.scrollTop = log.scrollHeight;
   }
 
-  // --- boot sequence ---
   function runBoot() {
     log.textContent = "";
     const lines = [
       "> Connecting to DTM Core...",
-      "> License check: OK",
+      "> Deployment check: OK",
+      "> Validation engine: ONLINE",
       "> System ready.",
       "",
       "Type 'help' to list commands.\n"
     ];
     let i = 0;
     const interval = setInterval(() => {
-      if (i < lines.length) {
-        log.textContent += lines[i++] + "\n";
-      } else {
-        clearInterval(interval);
-      }
-    }, 300);
+      if (i < lines.length) log.textContent += lines[i++] + "\n";
+      else clearInterval(interval);
+    }, 240);
   }
 
-  // --- toggle visibility ---
-function toggleTerminal(show) {
-  visible = typeof show === "boolean" ? show : !visible;
-  term.style.transform = visible ? "translateY(0)" : "translateY(100%)";
-
-  const hum = document.getElementById("dtmHum");
-  if (hum) {
+  function toggleTerminal(show) {
+    visible = typeof show === "boolean" ? show : !visible;
+    term.style.transform = visible ? "translateY(0)" : "translateY(100%)";
+    const hum = document.getElementById("dtmHum");
+    if (hum) {
+      if (visible) {
+        hum.volume = 0.25;
+        hum.play().catch(()=>{});
+      } else hum.pause();
+    }
     if (visible) {
-      hum.volume = 0.25;
-      hum.play().catch(()=>{});
-    } else {
-      hum.pause();
+      setTimeout(() => input.focus(), 300);
+      runBoot();
     }
   }
 
-  if (visible) {
-    setTimeout(() => input.focus(), 300);
-    runBoot();
-  }
-}
-
-
-  // --- keyboard bindings ---
   input.addEventListener("keydown", e => {
     if (e.key === "Enter") {
       const cmd = input.value.trim().toLowerCase();
@@ -1018,8 +1015,6 @@ function toggleTerminal(show) {
 })();
 </script>
 
-
-<!-- Terminal Hint -->
 <div id="dtmHint">Press <span>Ctrl + ~</span> to open terminal window</div>
 
 <style>
@@ -1029,26 +1024,16 @@ function toggleTerminal(show) {
     left: 22px;
     font-family: ui-monospace, Consolas, monospace;
     font-size: 13px;
-    color: rgba(155, 227, 183, 0.4);
+    color: rgba(155,227,183,.4);
     z-index: 9997;
     user-select: none;
     opacity: 0;
     animation: hintFade 2s 2.5s forwards;
   }
-
-  #dtmHint span {
-    color: rgba(33,181,89,0.8);
-  }
-
-  @keyframes hintFade {
-    to { opacity: 1; }
-  }
-
-  @media (max-width: 768px) {
-    #dtmHint { display: none; } /* скрываем на мобилках */
-  }
+  #dtmHint span { color: rgba(33,181,89,.8); }
+  @keyframes hintFade { to { opacity: 1; } }
+  @media (max-width: 768px) { #dtmHint { display:none; } }
 </style>
-
 
 </body>
 </html>

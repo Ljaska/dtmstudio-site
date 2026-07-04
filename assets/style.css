@@ -175,7 +175,7 @@ a:hover {
    HERO SECTION
    ===================== */
 .hero {
-  padding: 80px 24px;
+  padding: 55px 24px 35px;
   text-align: left;
   background: radial-gradient(
     1100px 380px at 60% -10%,
