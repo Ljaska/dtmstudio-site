@@ -81,15 +81,69 @@ a:hover {
 .brand {
   display: flex;
   align-items: center;
-  height: 60px; /* высота шапки */
+  height: 60px;
 }
 
 .brand img {
-  max-height: 40px;  /* ограничиваем */
+  max-height: 40px;
   width: auto;
-  display: block;    /* убираем лишние отступы */
+  display: block;
 }
 
+.brand-suite {
+  gap: 15px;
+}
+
+.brand-suite a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.brand-divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(255,255,255,0.14);
+  flex: 0 0 1px;
+}
+
+.brand-asphera {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+}
+
+.brand-asphera img {
+  max-height: 32px;
+  width: auto;
+}
+
+.asphera-brand-name {
+  display: flex;
+  flex-direction: column;
+  color: #f0f2e9;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.05;
+}
+
+.asphera-brand-name > span {
+  margin-top: 4px;
+  color: #9fa6a5;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+}
+
+.brand-asphera:hover {
+  text-decoration: none;
+}
+
+.brand-asphera:hover .asphera-brand-name {
+  color: #ffffff;
+}
 
 .menu a {
   color: var(--text);
@@ -606,7 +660,7 @@ body::before {
 /* =====================
    LOGO PULSE ANIMATION — DTM CORE
    ===================== */
-.brand img {
+.brand-dtm img {
   filter: drop-shadow(0 0 6px rgba(33,181,89,0.25));
   animation: logoPulse 5s ease-in-out infinite;
 }
